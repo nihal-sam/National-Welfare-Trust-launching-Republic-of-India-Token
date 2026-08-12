@@ -11,20 +11,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Three.js CDN for Photorealistic 3D Earth -->
+    <!-- Three.js CDN for Photorealistic 3D Golden Rim Earth -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <style>
         :root {
-            --bg-page: #020617;
-            --bg-surface: #0B1329;
+            --bg-page: #01040A;
+            --bg-surface: #070F1E;
             --primary-saffron: #E67E22;
             --primary-saffron-dark: #D35400;
-            --saffron-glow: rgba(230, 126, 34, 0.4);
+            --saffron-glow: rgba(230, 126, 34, 0.6);
             --india-green: #138808;
-            --india-green-dark: #0E6B06;
+            --india-green-glow: rgba(19, 136, 8, 0.6);
             --india-blue: #1D4ED8;
-            --india-blue-dark: #1E3A8A;
             --text-main: #FFFFFF;
             --font-main: 'Plus Jakarta Sans', sans-serif;
             --font-display: 'Space Grotesk', sans-serif;
@@ -68,38 +67,53 @@
             z-index: 10;
         }
 
-        /* Keep on Connect - Pure Text Alone */
+        /* Keep on Connect - Pure Neon Text */
         .connect-text-only {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
             color: #60A5FA;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(96, 165, 250, 0.8), 0 0 40px rgba(29, 78, 216, 0.6);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             user-select: none;
         }
 
         .connect-text-only:hover {
             color: #93C5FD;
-            text-shadow: 0 0 30px rgba(147, 197, 253, 0.9);
-            transform: translateY(-2px) scale(1.04);
+            text-shadow: 0 0 30px rgba(147, 197, 253, 1), 0 0 60px rgba(96, 165, 250, 0.9);
+            transform: translateY(-3px) scale(1.05);
         }
 
-        /* Header Navigation - Full Solid Saffron Bar */
+        /* Futuristic Neon Glass Header Bar */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 48px;
+            height: 52px;
             z-index: 1000;
-            background: linear-gradient(135deg, #E67E22 0%, #D35400 100%);
-            box-shadow: 0 4px 25px rgba(230, 126, 34, 0.4);
-            border-bottom: 2px solid #CA6F1E;
+            background: rgba(1, 4, 10, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 2px solid #E67E22;
+            box-shadow: 0 0 30px rgba(230, 126, 34, 0.55), 0 4px 20px rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-neon-glow {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #FF9933 50%, transparent 100%);
+            box-shadow: 0 0 15px #FF9933;
         }
 
         /* Hero Section */
@@ -109,14 +123,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-top: 140px;
+            padding-top: 150px;
             padding-bottom: 100px;
             text-align: center;
             z-index: 10;
         }
 
         .hero-centered-content {
-            max-width: 960px;
+            max-width: 980px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -141,37 +155,37 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 14px;
+            gap: 16px;
             font-family: var(--font-display);
             line-height: 1.15;
-            margin-bottom: 48px;
+            margin-bottom: 52px;
             text-align: center;
         }
 
         .title-line-1 {
-            font-size: 54px;
+            font-size: 56px;
             font-weight: 800;
             color: #FFFFFF;
             letter-spacing: -0.5px;
-            text-shadow: 0 0 25px rgba(255, 255, 255, 0.5), 0 0 45px rgba(230, 126, 34, 0.35);
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 50px rgba(230, 126, 34, 0.4);
         }
 
         .title-line-2 {
-            font-size: 34px;
+            font-size: 36px;
             font-weight: 700;
             color: #E67E22;
             text-transform: lowercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 20px rgba(230, 126, 34, 0.7);
+            letter-spacing: 6px;
+            text-shadow: 0 0 25px rgba(230, 126, 34, 0.85);
         }
 
         .title-line-3 {
-            font-size: 64px;
+            font-size: 66px;
             font-weight: 800;
             background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 40px rgba(19, 136, 8, 0.45);
+            text-shadow: 0 0 45px rgba(19, 136, 8, 0.55);
             letter-spacing: -1px;
         }
 
@@ -187,13 +201,13 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #0B1329;
+            background: #070F1E;
             border: 1px solid #1D4ED8;
             padding: 16px 24px;
             border-radius: 14px;
             color: #FFFFFF;
             font-weight: 700;
-            box-shadow: 0 0 25px rgba(29, 78, 216, 0.4);
+            box-shadow: 0 0 30px rgba(29, 78, 216, 0.5);
             z-index: 3000;
             display: flex;
             align-items: center;
@@ -208,19 +222,36 @@
             opacity: 1;
         }
 
-        /* Footer - Full India Green Bottom Band */
+        /* Futuristic Neon Glass Footer Bar */
         footer {
             position: relative;
             z-index: 20;
             margin-top: auto;
-            background: linear-gradient(135deg, #138808 0%, #0E6B06 100%);
-            border-top: 3px solid #138808;
-            padding: 30px 0;
+            background: rgba(1, 4, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 2px solid #138808;
+            padding: 28px 0;
             text-align: center;
             color: #FFFFFF;
             font-size: 15px;
             font-weight: 700;
-            box-shadow: 0 -4px 25px rgba(19, 136, 8, 0.4);
+            box-shadow: 0 0 30px rgba(19, 136, 8, 0.55), 0 -4px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .footer-neon-glow {
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #138808 50%, transparent 100%);
+            box-shadow: 0 0 15px #138808;
+        }
+
+        .footer-text {
+            color: #E2E8F0;
+            text-shadow: 0 0 12px rgba(19, 136, 8, 0.7);
         }
 
         @media (max-width: 992px) {
@@ -232,11 +263,13 @@
 </head>
 <body>
 
-    <!-- 3D Real Earth Canvas Container -->
+    <!-- 3D Golden Rim Earth Canvas Container -->
     <div id="canvas-container"></div>
 
-    <!-- Navigation Bar - Full Solid Saffron Bar -->
-    <header></header>
+    <!-- Navigation Bar - Futuristic Neon Glass Bar -->
+    <header>
+        <div class="header-neon-glow"></div>
+    </header>
 
     <main style="display: flex; flex-direction: column; flex: 1;">
         <!-- Home Hero Section -->
@@ -265,21 +298,22 @@
         <span id="toastMessage">Keep on Connect Active!</span>
     </div>
 
-    <!-- Footer - Full Green Bottom Band -->
+    <!-- Footer - Futuristic Neon Glass Bar -->
     <footer>
-        <div class="container">
+        <div class="footer-neon-glow"></div>
+        <div class="container footer-text">
             &copy; 2026 National Welfare Trust. Republic of India Token.
         </div>
     </footer>
 
-    <!-- Interactive Photorealistic 3D Earth Moving Animation Script -->
+    <!-- Interactive Photorealistic 3D Golden Rim Earth Script -->
     <script>
-        function initReal3DEarth() {
+        function initGoldenRim3DEarth() {
             const container = document.getElementById('canvas-container');
             if (!container) return;
 
             if (typeof THREE === 'undefined') {
-                container.style.background = 'radial-gradient(circle at 50% 50%, #061933 0%, #020617 100%)';
+                container.style.background = 'radial-gradient(circle at 50% 50%, #041224 0%, #01040A 100%)';
                 return;
             }
 
@@ -292,22 +326,22 @@
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             container.appendChild(renderer.domElement);
 
-            // 1. GENERATE PHOTOREALISTIC EARTH TEXTURE MAP
+            // 1. GENERATE GOLDEN NIGHT CITY LIGHTS EARTH TEXTURE MAP
             const earthCanvas = document.createElement('canvas');
             earthCanvas.width = 2048;
             earthCanvas.height = 1024;
             const eCtx = earthCanvas.getContext('2d');
 
-            // Deep Realistic Ocean Blue Background
+            // Deep Metallic Night Ocean
             const oceanGrad = eCtx.createLinearGradient(0, 0, 0, 1024);
-            oceanGrad.addColorStop(0, '#02162E');
-            oceanGrad.addColorStop(0.5, '#0A3B74');
-            oceanGrad.addColorStop(1, '#02162E');
+            oceanGrad.addColorStop(0, '#010814');
+            oceanGrad.addColorStop(0.5, '#04162B');
+            oceanGrad.addColorStop(1, '#010814');
             eCtx.fillStyle = oceanGrad;
             eCtx.fillRect(0, 0, 2048, 1024);
 
-            // Draw Continents Topography (Asia, India, Europe, Africa, Americas, Australia)
-            eCtx.fillStyle = '#225227'; // Lush Green Landmass
+            // Dark Charcoal/Navy Landmass Silhouettes
+            eCtx.fillStyle = '#091B2E';
 
             // Asia & Indian Subcontinent Region
             eCtx.beginPath();
@@ -315,7 +349,7 @@
             eCtx.fill();
 
             // India Peninsula Detail
-            eCtx.fillStyle = '#316B2D';
+            eCtx.fillStyle = '#0E243B';
             eCtx.beginPath();
             eCtx.moveTo(1360, 410);
             eCtx.lineTo(1430, 520);
@@ -325,75 +359,114 @@
             eCtx.fill();
 
             // Europe & Africa
-            eCtx.fillStyle = '#204A23';
+            eCtx.fillStyle = '#081728';
             eCtx.beginPath();
             eCtx.ellipse(1080, 360, 170, 120, 0, 0, Math.PI * 2); // Europe
             eCtx.ellipse(1060, 620, 200, 250, 0, 0, Math.PI * 2); // Africa
             eCtx.fill();
 
             // Americas
-            eCtx.fillStyle = '#1E4721';
+            eCtx.fillStyle = '#081626';
             eCtx.beginPath();
             eCtx.ellipse(540, 360, 230, 170, 0, 0, Math.PI * 2); // North America
             eCtx.ellipse(680, 680, 170, 250, 0, 0, Math.PI * 2); // South America
             eCtx.fill();
 
-            // Australia & Indonesia Islands
-            eCtx.fillStyle = '#5A5223';
+            // Australia & Indonesia
+            eCtx.fillStyle = '#0A1B2C';
             eCtx.beginPath();
             eCtx.ellipse(1680, 720, 150, 110, 0, 0, Math.PI * 2);
             eCtx.fill();
 
-            // Glowing City Lights Overlay (Night side details)
-            for (let i = 0; i < 750; i++) {
+            // Intense Golden/Saffron City Lights Network (Matching Reference Image)
+            for (let i = 0; i < 1100; i++) {
                 let x = Math.random() * 2048;
                 let y = Math.random() * 1024;
-                eCtx.fillStyle = Math.random() > 0.4 ? '#FFB74D' : '#64B5F6';
-                eCtx.fillRect(x, y, 2, 2);
+                eCtx.fillStyle = Math.random() > 0.3 ? '#FF9933' : '#FFC107';
+                eCtx.fillRect(x, y, 2.2, 2.2);
             }
 
             // India Golden Light Cluster
             let ix = 1370, iy = 470;
-            for(let i=0; i<100; i++) {
-                let x = ix + (Math.random() - 0.5) * 80;
-                let y = iy + (Math.random() - 0.5) * 60;
-                eCtx.fillStyle = '#FFB74D';
+            for(let i=0; i<160; i++) {
+                let x = ix + (Math.random() - 0.5) * 85;
+                let y = iy + (Math.random() - 0.5) * 65;
+                eCtx.fillStyle = i % 2 === 0 ? '#FF9933' : '#FFD54F';
                 eCtx.beginPath();
-                eCtx.arc(x, y, 2, 0, Math.PI * 2);
+                eCtx.arc(x, y, 2.5, 0, Math.PI * 2);
                 eCtx.fill();
             }
 
-            // Ice Caps
-            eCtx.fillStyle = '#EAF4F4';
-            eCtx.fillRect(0, 970, 2048, 54);
-            eCtx.fillRect(0, 0, 2048, 35);
+            // Polar Caps
+            eCtx.fillStyle = '#A0C4DF';
+            eCtx.fillRect(0, 975, 2048, 49);
+            eCtx.fillRect(0, 0, 2048, 30);
 
             const earthTexture = new THREE.CanvasTexture(earthCanvas);
 
-            // 2. CREATE REALISTIC EARTH MESH
+            // 2. CREATE EARTH MESH
             const earthGeo = new THREE.SphereGeometry(1.35, 64, 64);
             const earthMat = new THREE.MeshPhongMaterial({
                 map: earthTexture,
-                shininess: 20,
-                specular: new THREE.Color(0x224466)
+                emissive: new THREE.Color(0x1a0d02),
+                emissiveIntensity: 0.8,
+                shininess: 25,
+                specular: new THREE.Color(0x336699)
             });
             const earth = new THREE.Mesh(earthGeo, earthMat);
             scene.add(earth);
 
-            // 3. PHOTOREALISTIC CLOUDS LAYER
+            // 3. CUSTOM SHADER FOR GOLDEN/SAFFRON GLOWING RIM BACKLIGHT (Matching Reference Image)
+            const rimShaderMat = new THREE.ShaderMaterial({
+                uniforms: {
+                    c: { type: "f", value: 0.65 },
+                    p: { type: "f", value: 3.2 },
+                    glowColor: { type: "c", value: new THREE.Color(0xFF9933) },
+                    viewVector: { type: "v3", value: camera.position }
+                },
+                vertexShader: `
+                    uniform vec3 viewVector;
+                    uniform float c;
+                    uniform float p;
+                    varying float intensity;
+                    void main() {
+                        vec3 vNormal = normalize(normalMatrix * normal);
+                        vec3 vNormel = normalize(normalMatrix * viewVector);
+                        intensity = pow(c - dot(vNormal, vNormel), p);
+                        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                    }
+                `,
+                fragmentShader: `
+                    uniform vec3 glowColor;
+                    varying float intensity;
+                    void main() {
+                        vec3 glow = glowColor * intensity;
+                        gl_FragColor = vec4(glow, intensity * 0.95);
+                    }
+                `,
+                side: THREE.BackSide,
+                blending: THREE.AdditiveBlending,
+                transparent: true
+            });
+
+            const rimGeo = new THREE.SphereGeometry(1.42, 64, 64);
+            const rimMesh = new THREE.Mesh(rimGeo, rimShaderMat);
+            scene.add(rimMesh);
+
+            // 4. SOFT SWIRLING ATMOSPHERIC CLOUDS
             const cloudCanvas = document.createElement('canvas');
             cloudCanvas.width = 2048;
             cloudCanvas.height = 1024;
             const cCtx = cloudCanvas.getContext('2d');
             cCtx.fillStyle = 'transparent';
             cCtx.fillRect(0, 0, 2048, 1024);
-            cCtx.fillStyle = 'rgba(255, 255, 255, 0.42)';
+            cCtx.fillStyle = 'rgba(255, 255, 255, 0.35)';
 
-            for(let i=0; i<700; i++) {
+            for(let i=0; i<650; i++) {
                 let cx = Math.random() * 2048;
                 let cy = Math.random() * 1024;
-                let rx = 35 + Math.random() * 100;
-                let ry = 12 + Math.random() * 35;
+                let rx = 40 + Math.random() * 95;
+                let ry = 14 + Math.random() * 30;
                 cCtx.beginPath();
                 cCtx.ellipse(cx, cy, rx, ry, Math.random() * Math.PI, 0, Math.PI * 2);
                 cCtx.fill();
@@ -404,26 +477,15 @@
             const cloudMat = new THREE.MeshPhongMaterial({
                 map: cloudTexture,
                 transparent: true,
-                opacity: 0.8,
+                opacity: 0.7,
                 blending: THREE.AdditiveBlending
             });
             const clouds = new THREE.Mesh(cloudGeo, cloudMat);
             scene.add(clouds);
 
-            // 4. REALISTIC BLUE ATMOSPHERE HALO
-            const atmosphereGeo = new THREE.SphereGeometry(1.44, 64, 64);
-            const atmosphereMat = new THREE.MeshBasicMaterial({
-                color: 0x4080FF,
-                transparent: true,
-                opacity: 0.16,
-                side: THREE.BackSide
-            });
-            const atmosphere = new THREE.Mesh(atmosphereGeo, atmosphereMat);
-            scene.add(atmosphere);
-
             // 5. STARRY SPACE PARTICLES
             const starGeo = new THREE.BufferGeometry();
-            const starCount = 500;
+            const starCount = 450;
             const starPos = new Float32Array(starCount * 3);
             for(let i=0; i<starCount*3; i++) {
                 starPos[i] = (Math.random() - 0.5) * 10;
@@ -433,19 +495,24 @@
             const stars = new THREE.Points(starGeo, starMat);
             scene.add(stars);
 
-            // 6. REALISTIC SUNLIGHTING
-            const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.45);
+            // 6. BACKLIGHTING & AMBIENT LIGHTING
+            const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.5);
             scene.add(ambientLight);
 
-            const dirLight = new THREE.DirectionalLight(0xFFFFFF, 1.4);
-            dirLight.position.set(5, 3, 5);
-            scene.add(dirLight);
+            // Strong Golden Rim Directional Backlight
+            const rimLight = new THREE.DirectionalLight(0xFF9933, 2.2);
+            rimLight.position.set(-5, 4, -4);
+            scene.add(rimLight);
+
+            const fillLight = new THREE.DirectionalLight(0x2563EB, 0.8);
+            fillLight.position.set(4, 2, 4);
+            scene.add(fillLight);
 
             // 7. REALISTIC SLOW PLANETARY ROTATION ANIMATION
             function animate() {
                 requestAnimationFrame(animate);
-                earth.rotation.y += 0.0012; // Slow, majestic real Earth rotation
-                clouds.rotation.y += 0.0015; // Clouds drift slightly faster
+                earth.rotation.y += 0.0012;
+                clouds.rotation.y += 0.0015;
                 stars.rotation.y -= 0.0003;
                 renderer.render(scene, camera);
             }
@@ -473,7 +540,7 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            initReal3DEarth();
+            initGoldenRim3DEarth();
         });
     </script>
 </body>
