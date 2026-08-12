@@ -29,8 +29,8 @@
             --text-main: #0F172A;
             --text-muted: #475569;
             --border-color: #E2E8F0;
-            --card-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-            --glass-bg: rgba(255, 255, 255, 0.92);
+            --card-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+            --glass-bg: rgba(255, 255, 255, 0.94);
             --font-main: 'Plus Jakarta Sans', sans-serif;
             --font-display: 'Space Grotesk', sans-serif;
         }
@@ -50,9 +50,42 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background-image: 
-                radial-gradient(circle at 10% 10%, rgba(230, 126, 34, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(19, 136, 8, 0.05) 0%, transparent 40%);
+            opacity: 0;
+            animation: pageFadeIn 1s ease-out 0.1s forwards;
+        }
+
+        /* Smooth Page Entrance Keyframe Animations */
+        @keyframes pageFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heroReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes graphDrawIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .container {
@@ -185,11 +218,16 @@
             color: var(--primary-saffron-dark);
         }
 
-        /* Hero Section */
+        /* Home Hero Section with Light Faded Graph Image Background */
         .hero {
+            position: relative;
             padding-top: 160px;
-            padding-bottom: 40px;
+            padding-bottom: 50px;
             text-align: center;
+            background: 
+                radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.96) 80%),
+                url('./faded_graph_bg.jpg') center/cover no-repeat;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .hero-centered-content {
@@ -198,6 +236,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            animation: heroReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .hero-title {
@@ -219,7 +258,8 @@
 
         /* Demo Graph Sheet Section */
         .graph-section {
-            padding: 20px 0 100px 0;
+            padding: 40px 0 100px 0;
+            animation: graphDrawIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
         }
 
         .graph-sheet-wrapper {
@@ -280,7 +320,7 @@
 
         .graph-container {
             position: relative;
-            height: 460px;
+            height: 480px;
             width: 100%;
         }
 
@@ -394,7 +434,7 @@
     </header>
 
     <main>
-        <!-- Home Page Section -->
+        <!-- Home Page Section with Faded Graph Photo Background -->
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-centered-content">
@@ -414,7 +454,7 @@
             </div>
         </section>
 
-        <!-- Demo Graph Sheet Section -->
+        <!-- Demo Graph Sheet Section with Smooth Entrance Animation -->
         <section id="graph-sheet" class="graph-section">
             <div class="container">
                 <div class="graph-sheet-wrapper">
@@ -474,7 +514,7 @@
         </div>
     </footer>
 
-    <!-- Interactive JavaScript -->
+    <!-- Interactive JavaScript with Smooth Graph Entrance Animation -->
     <script>
         /* DATA STORES */
         const graphDataSets = {
@@ -494,7 +534,7 @@
         let liveStreaming = true;
         let chartInstance = null;
 
-        /* GRAPH SHEET ENGINE */
+        /* GRAPH SHEET ENGINE WITH SMOOTH ENTRANCE ANIMATION */
         function initDemoGraphSheet() {
             const ctx = document.getElementById('demoGraphCanvas').getContext('2d');
             
@@ -528,6 +568,10 @@
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
+                        animation: {
+                            duration: 2200,
+                            easing: 'easeOutQuart'
+                        },
                         plugins: {
                             legend: {
                                 display: true,
@@ -581,7 +625,10 @@
 
             if (chartInstance) {
                 chartInstance.data.datasets[0].data = newData;
-                chartInstance.update();
+                chartInstance.update({
+                    duration: 1200,
+                    easing: 'easeOutCubic'
+                });
             }
             showToast(`⏱️ Graph Timeframe set to ${tf}`);
         }
