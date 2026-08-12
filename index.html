@@ -11,12 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Three.js CDN for 3D Earth at Night -->
+    <!-- Three.js CDN for Photorealistic 3D Earth -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <style>
         :root {
-            --bg-page: #030712;
+            --bg-page: #020617;
             --bg-surface: #0B1329;
             --primary-saffron: #E67E22;
             --primary-saffron-dark: #D35400;
@@ -83,11 +83,11 @@
             border: none;
         }
 
-        /* Neon Royal Blue Keep on Connect Button */
+        /* Royal Blue Keep on Connect Button */
         .btn-connect {
             background: linear-gradient(135deg, #1D4ED8 0%, #1E3A8A 100%);
             color: #FFFFFF;
-            box-shadow: 0 0 25px rgba(29, 78, 216, 0.6), 0 6px 24px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 30px rgba(29, 78, 216, 0.6), 0 6px 24px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(96, 165, 250, 0.4);
             position: relative;
             overflow: hidden;
@@ -95,7 +95,7 @@
 
         .btn-connect:hover {
             transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 0 40px rgba(96, 165, 250, 0.8), 0 10px 35px rgba(29, 78, 216, 0.7);
+            box-shadow: 0 0 45px rgba(96, 165, 250, 0.8), 0 10px 35px rgba(29, 78, 216, 0.7);
             border-color: #60A5FA;
         }
 
@@ -160,7 +160,7 @@
             }
         }
 
-        /* 3-Line Neon Title Styling */
+        /* 3-Line Title Styling */
         .hero-title {
             display: flex;
             flex-direction: column;
@@ -257,7 +257,7 @@
 </head>
 <body>
 
-    <!-- 3D Earth at Night Canvas Container -->
+    <!-- 3D Real Earth Canvas Container -->
     <div id="canvas-container"></div>
 
     <!-- Navigation Bar - Full Solid Saffron Bar -->
@@ -297,121 +297,181 @@
         </div>
     </footer>
 
-    <!-- Interactive 3D Earth at Night WebGL Script -->
+    <!-- Interactive Photorealistic 3D Earth Moving Animation Script -->
     <script>
-        function init3DEarth() {
+        function initReal3DEarth() {
             const container = document.getElementById('canvas-container');
             if (!container) return;
 
             if (typeof THREE === 'undefined') {
-                container.style.background = 'radial-gradient(circle at 50% 50%, #0c1a30 0%, #030712 100%)';
+                container.style.background = 'radial-gradient(circle at 50% 50%, #061933 0%, #020617 100%)';
                 return;
             }
 
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 3.6;
+            camera.position.z = 3.5;
 
             const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             container.appendChild(renderer.domElement);
 
-            // Create 3D Earth Sphere Geometry
-            const geometry = new THREE.SphereGeometry(1.35, 64, 64);
-            
-            // Procedural Glowing Night City Lights & Continent Texture
-            const canvas = document.createElement('canvas');
-            canvas.width = 1024;
-            canvas.height = 512;
-            const ctx = canvas.getContext('2d');
-            
-            ctx.fillStyle = '#030814';
-            ctx.fillRect(0, 0, 1024, 512);
+            // 1. GENERATE PHOTOREALISTIC EARTH TEXTURE MAP
+            const earthCanvas = document.createElement('canvas');
+            earthCanvas.width = 2048;
+            earthCanvas.height = 1024;
+            const eCtx = earthCanvas.getContext('2d');
 
-            // Procedural landmass silhouettes
-            ctx.fillStyle = '#0B1B32';
-            for (let i = 0; i < 350; i++) {
-                let x = Math.random() * 1024;
-                let y = Math.random() * 512;
-                let r = 15 + Math.random() * 45;
-                ctx.beginPath();
-                ctx.arc(x, y, r, 0, Math.PI * 2);
-                ctx.fill();
+            // Deep Realistic Ocean Blue Background
+            const oceanGrad = eCtx.createLinearGradient(0, 0, 0, 1024);
+            oceanGrad.addColorStop(0, '#02162E');
+            oceanGrad.addColorStop(0.5, '#0A3B74');
+            oceanGrad.addColorStop(1, '#02162E');
+            eCtx.fillStyle = oceanGrad;
+            eCtx.fillRect(0, 0, 2048, 1024);
+
+            // Draw Continents Topography (Asia, India, Europe, Africa, Americas, Australia)
+            eCtx.fillStyle = '#225227'; // Lush Green Landmass
+
+            // Asia & Indian Subcontinent Region
+            eCtx.beginPath();
+            eCtx.ellipse(1420, 420, 280, 200, 0, 0, Math.PI * 2);
+            eCtx.fill();
+
+            // India Peninsula Detail
+            eCtx.fillStyle = '#316B2D';
+            eCtx.beginPath();
+            eCtx.moveTo(1360, 410);
+            eCtx.lineTo(1430, 520);
+            eCtx.lineTo(1390, 560);
+            eCtx.lineTo(1320, 480);
+            eCtx.closePath();
+            eCtx.fill();
+
+            // Europe & Africa
+            eCtx.fillStyle = '#204A23';
+            eCtx.beginPath();
+            eCtx.ellipse(1080, 360, 170, 120, 0, 0, Math.PI * 2); // Europe
+            eCtx.ellipse(1060, 620, 200, 250, 0, 0, Math.PI * 2); // Africa
+            eCtx.fill();
+
+            // Americas
+            eCtx.fillStyle = '#1E4721';
+            eCtx.beginPath();
+            eCtx.ellipse(540, 360, 230, 170, 0, 0, Math.PI * 2); // North America
+            eCtx.ellipse(680, 680, 170, 250, 0, 0, Math.PI * 2); // South America
+            eCtx.fill();
+
+            // Australia & Indonesia Islands
+            eCtx.fillStyle = '#5A5223';
+            eCtx.beginPath();
+            eCtx.ellipse(1680, 720, 150, 110, 0, 0, Math.PI * 2);
+            eCtx.fill();
+
+            // Glowing City Lights Overlay (Night side details)
+            for (let i = 0; i < 750; i++) {
+                let x = Math.random() * 2048;
+                let y = Math.random() * 1024;
+                eCtx.fillStyle = Math.random() > 0.4 ? '#FFB74D' : '#64B5F6';
+                eCtx.fillRect(x, y, 2, 2);
             }
 
-            // Neon Night City Lights Nodes
-            for (let i = 0; i < 900; i++) {
-                let x = Math.random() * 1024;
-                let y = Math.random() * 512;
-                ctx.fillStyle = Math.random() > 0.4 ? '#E67E22' : '#2563EB';
-                ctx.fillRect(x, y, 2, 2);
+            // India Golden Light Cluster
+            let ix = 1370, iy = 470;
+            for(let i=0; i<100; i++) {
+                let x = ix + (Math.random() - 0.5) * 80;
+                let y = iy + (Math.random() - 0.5) * 60;
+                eCtx.fillStyle = '#FFB74D';
+                eCtx.beginPath();
+                eCtx.arc(x, y, 2, 0, Math.PI * 2);
+                eCtx.fill();
             }
 
-            // Highlighted India Glowing City Cluster
-            let ix = 690, iy = 230;
-            for(let i=0; i<140; i++) {
-                let x = ix + (Math.random() - 0.5) * 70;
-                let y = iy + (Math.random() - 0.5) * 55;
-                ctx.fillStyle = i % 2 === 0 ? '#FF9933' : '#138808';
-                ctx.beginPath();
-                ctx.arc(x, y, 2.5, 0, Math.PI * 2);
-                ctx.fill();
-            }
+            // Ice Caps
+            eCtx.fillStyle = '#EAF4F4';
+            eCtx.fillRect(0, 970, 2048, 54);
+            eCtx.fillRect(0, 0, 2048, 35);
 
-            const texture = new THREE.CanvasTexture(canvas);
-            const material = new THREE.MeshPhongMaterial({
-                map: texture,
-                emissive: new THREE.Color(0x0a1e36),
-                shininess: 30
+            const earthTexture = new THREE.CanvasTexture(earthCanvas);
+
+            // 2. CREATE REALISTIC EARTH MESH
+            const earthGeo = new THREE.SphereGeometry(1.35, 64, 64);
+            const earthMat = new THREE.MeshPhongMaterial({
+                map: earthTexture,
+                shininess: 20,
+                specular: new THREE.Color(0x224466)
             });
-
-            const earth = new THREE.Mesh(geometry, material);
+            const earth = new THREE.Mesh(earthGeo, earthMat);
             scene.add(earth);
 
-            // Glowing Outer Atmosphere Ring
-            const atmosphereGeo = new THREE.SphereGeometry(1.42, 64, 64);
-            const atmosphereMat = new THREE.MeshBasicMaterial({
-                color: 0x1d4ed8,
+            // 3. PHOTOREALISTIC CLOUDS LAYER
+            const cloudCanvas = document.createElement('canvas');
+            cloudCanvas.width = 2048;
+            cloudCanvas.height = 1024;
+            const cCtx = cloudCanvas.getContext('2d');
+            cCtx.fillStyle = 'transparent';
+            cCtx.fillRect(0, 0, 2048, 1024);
+            cCtx.fillStyle = 'rgba(255, 255, 255, 0.42)';
+
+            for(let i=0; i<700; i++) {
+                let cx = Math.random() * 2048;
+                let cy = Math.random() * 1024;
+                let rx = 35 + Math.random() * 100;
+                let ry = 12 + Math.random() * 35;
+                cCtx.beginPath();
+                cCtx.ellipse(cx, cy, rx, ry, Math.random() * Math.PI, 0, Math.PI * 2);
+                cCtx.fill();
+            }
+            const cloudTexture = new THREE.CanvasTexture(cloudCanvas);
+
+            const cloudGeo = new THREE.SphereGeometry(1.38, 64, 64);
+            const cloudMat = new THREE.MeshPhongMaterial({
+                map: cloudTexture,
                 transparent: true,
-                opacity: 0.22,
+                opacity: 0.8,
+                blending: THREE.AdditiveBlending
+            });
+            const clouds = new THREE.Mesh(cloudGeo, cloudMat);
+            scene.add(clouds);
+
+            // 4. REALISTIC BLUE ATMOSPHERE HALO
+            const atmosphereGeo = new THREE.SphereGeometry(1.44, 64, 64);
+            const atmosphereMat = new THREE.MeshBasicMaterial({
+                color: 0x4080FF,
+                transparent: true,
+                opacity: 0.16,
                 side: THREE.BackSide
             });
             const atmosphere = new THREE.Mesh(atmosphereGeo, atmosphereMat);
             scene.add(atmosphere);
 
-            // Neon Saffron Orbit Ring
-            const ringGeo = new THREE.RingGeometry(1.65, 1.67, 64);
-            const ringMat = new THREE.MeshBasicMaterial({ color: 0xe67e22, side: THREE.DoubleSide, transparent: true, opacity: 0.45 });
-            const ring = new THREE.Mesh(ringGeo, ringMat);
-            ring.rotation.x = Math.PI / 2.3;
-            scene.add(ring);
-
-            // Floating Space Particles
-            const particlesGeo = new THREE.BufferGeometry();
-            const particleCount = 450;
-            const posArray = new Float32Array(particleCount * 3);
-            for(let i=0; i<particleCount*3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 9;
+            // 5. STARRY SPACE PARTICLES
+            const starGeo = new THREE.BufferGeometry();
+            const starCount = 500;
+            const starPos = new Float32Array(starCount * 3);
+            for(let i=0; i<starCount*3; i++) {
+                starPos[i] = (Math.random() - 0.5) * 10;
             }
-            particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-            const particlesMat = new THREE.PointsMaterial({ size: 0.025, color: 0x60a5fa, transparent: true, opacity: 0.75 });
-            const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
-            scene.add(particlesMesh);
+            starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+            const starMat = new THREE.PointsMaterial({ size: 0.02, color: 0xFFFFFF, transparent: true, opacity: 0.8 });
+            const stars = new THREE.Points(starGeo, starMat);
+            scene.add(stars);
 
-            // Lighting
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+            // 6. REALISTIC SUNLIGHTING
+            const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.45);
             scene.add(ambientLight);
-            const pointLight = new THREE.PointLight(0xe67e22, 1.8, 100);
-            pointLight.position.set(5, 3, 5);
-            scene.add(pointLight);
 
-            // Continuous Rotation Animation
+            const dirLight = new THREE.DirectionalLight(0xFFFFFF, 1.4);
+            dirLight.position.set(5, 3, 5);
+            scene.add(dirLight);
+
+            // 7. REALISTIC SLOW PLANETARY ROTATION ANIMATION
             function animate() {
                 requestAnimationFrame(animate);
-                earth.rotation.y += 0.0025;
-                ring.rotation.z += 0.0018;
-                particlesMesh.rotation.y -= 0.0008;
+                earth.rotation.y += 0.0012; // Slow, majestic real Earth rotation
+                clouds.rotation.y += 0.0015; // Clouds drift slightly faster
+                stars.rotation.y -= 0.0003;
                 renderer.render(scene, camera);
             }
             animate();
@@ -438,7 +498,7 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            init3DEarth();
+            initReal3DEarth();
         });
     </script>
 </body>
