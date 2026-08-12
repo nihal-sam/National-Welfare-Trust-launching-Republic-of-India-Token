@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Three.js CDN for Photorealistic 3D Earth Background Engine -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -24,6 +24,7 @@
             --india-green: #138808;
             --india-green-glow: rgba(19, 136, 8, 0.6);
             --cyan-glow: #00F0FF;
+            --thick-blue: #2563EB;
             --text-main: #FFFFFF;
             --font-main: 'Plus Jakarta Sans', sans-serif;
             --font-display: 'Space Grotesk', sans-serif;
@@ -67,18 +68,18 @@
             z-index: 10;
         }
 
-        /* Keep on Connect - Pure Plain Text Alone (No Click, No Cursor, No Glow) */
+        /* Keep on Connect - Thick Blue Pure Plain Text */
         .connect-text-only {
-            font-size: 22px;
-            font-weight: 600;
-            color: #E2E8F0;
-            letter-spacing: 0.8px;
+            font-size: 26px;
+            font-weight: 800;
+            color: #2563EB;
+            letter-spacing: 1.2px;
             user-select: none;
             background: none;
             border: none;
             padding: 0;
             box-shadow: none;
-            text-shadow: none;
+            text-shadow: 0 0 20px rgba(37, 99, 235, 0.7);
             display: inline-block;
         }
 
