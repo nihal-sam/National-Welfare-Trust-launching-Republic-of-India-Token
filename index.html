@@ -23,7 +23,7 @@
             --saffron-glow: rgba(230, 126, 34, 0.6);
             --india-green: #138808;
             --india-green-glow: rgba(19, 136, 8, 0.6);
-            --india-blue: #1D4ED8;
+            --cyan-glow: #00F0FF;
             --text-main: #FFFFFF;
             --font-main: 'Plus Jakarta Sans', sans-serif;
             --font-display: 'Space Grotesk', sans-serif;
@@ -67,27 +67,27 @@
             z-index: 10;
         }
 
-        /* Keep on Connect - Pure Neon Text Alone (No Icon, No Box, No Border) */
+        /* Keep on Connect - Normal Text Only (No Glow, No Hover Scale, No Box) */
         .connect-text-only {
-            font-size: 26px;
-            font-weight: 800;
-            color: #60A5FA;
-            letter-spacing: 1.2px;
-            text-shadow: 0 0 20px rgba(96, 165, 250, 0.9), 0 0 45px rgba(29, 78, 216, 0.8);
+            font-size: 22px;
+            font-weight: 600;
+            color: #E2E8F0;
+            letter-spacing: 0.8px;
             cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             user-select: none;
             background: none;
             border: none;
             padding: 0;
             box-shadow: none;
+            text-shadow: none;
             display: inline-block;
+            transition: color 0.2s ease;
         }
 
         .connect-text-only:hover {
-            color: #93C5FD;
-            text-shadow: 0 0 35px rgba(147, 197, 253, 1), 0 0 65px rgba(96, 165, 250, 0.95);
-            transform: translateY(-3px) scale(1.05);
+            color: #FFFFFF;
+            transform: none;
+            text-shadow: none;
         }
 
         /* Hero Section */
@@ -144,13 +144,14 @@
             text-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 50px rgba(230, 126, 34, 0.4);
         }
 
+        /* Launching - Distinct Vivid Electric Cyan Color */
         .title-line-2 {
             font-size: 36px;
             font-weight: 700;
-            color: #E67E22;
+            color: #00F0FF;
             text-transform: lowercase;
             letter-spacing: 6px;
-            text-shadow: 0 0 25px rgba(230, 126, 34, 0.85);
+            text-shadow: 0 0 25px rgba(0, 240, 255, 0.9), 0 0 50px rgba(0, 240, 255, 0.4);
         }
 
         .title-line-3 {
