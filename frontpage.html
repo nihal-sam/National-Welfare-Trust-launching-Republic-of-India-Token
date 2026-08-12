@@ -21,7 +21,8 @@
             --saffron-glow: rgba(230, 126, 34, 0.2);
             --india-green: #138808;
             --india-green-dark: #0E6B06;
-            --india-green-light: rgba(19, 136, 8, 0.1);
+            --india-blue: #1D4ED8;
+            --india-blue-dark: #1E3A8A;
             --navy-blue: #0F172A;
             --gold-accent: #D97706;
             --text-main: #0F172A;
@@ -83,7 +84,7 @@
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #D35400 0%, #0F172A 50%, #138808 100%);
+            background: linear-gradient(135deg, #D35400 0%, #1D4ED8 50%, #138808 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -103,33 +104,34 @@
             border: none;
         }
 
+        /* Keep on Connect - Blue Color Box */
         .btn-connect {
-            background: linear-gradient(135deg, var(--india-green) 0%, #0E6B06 100%);
+            background: linear-gradient(135deg, var(--india-blue) 0%, var(--india-blue-dark) 100%);
             color: #FFFFFF;
-            box-shadow: 0 6px 24px rgba(19, 136, 8, 0.3);
+            box-shadow: 0 6px 24px rgba(29, 78, 216, 0.35);
         }
 
         .btn-connect:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 32px rgba(19, 136, 8, 0.45);
+            box-shadow: 0 10px 32px rgba(29, 78, 216, 0.5);
         }
 
         .pulse-dot {
             width: 9px;
             height: 9px;
             border-radius: 50%;
-            background-color: #FFFFFF;
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8);
+            background-color: #60A5FA;
+            box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.8);
             animation: pulse-animation 1.8s infinite;
         }
 
         @keyframes pulse-animation {
-            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.8); }
+            70% { box-shadow: 0 0 0 10px rgba(96, 165, 250, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
         }
 
-        /* Header Navigation - Saffron Tricolor Accent */
+        /* Header Navigation - Saffron Top Accent */
         header {
             position: fixed;
             top: 0;
@@ -235,7 +237,7 @@
             bottom: 30px;
             right: 30px;
             background: #FFFFFF;
-            border: 1px solid var(--primary-saffron);
+            border: 1px solid var(--india-blue);
             padding: 16px 24px;
             border-radius: 14px;
             color: var(--navy-blue);
@@ -255,7 +257,7 @@
             opacity: 1;
         }
 
-        /* Footer - Green Tricolor Color */
+        /* Footer - Green Bottom Accent */
         footer {
             margin-top: auto;
             background: linear-gradient(135deg, #138808 0%, #0E6B06 100%);
