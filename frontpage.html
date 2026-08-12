@@ -67,13 +67,12 @@
             z-index: 10;
         }
 
-        /* Keep on Connect - Normal Text Only (No Glow, No Hover Scale, No Box) */
+        /* Keep on Connect - Pure Plain Text Alone (No Click, No Cursor, No Glow) */
         .connect-text-only {
             font-size: 22px;
             font-weight: 600;
             color: #E2E8F0;
             letter-spacing: 0.8px;
-            cursor: pointer;
             user-select: none;
             background: none;
             border: none;
@@ -81,13 +80,6 @@
             box-shadow: none;
             text-shadow: none;
             display: inline-block;
-            transition: color 0.2s ease;
-        }
-
-        .connect-text-only:hover {
-            color: #FFFFFF;
-            transform: none;
-            text-shadow: none;
         }
 
         /* Hero Section */
@@ -171,32 +163,6 @@
             flex-wrap: wrap;
         }
 
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #070F1E;
-            border: 1px solid #1D4ED8;
-            padding: 16px 24px;
-            border-radius: 14px;
-            color: #FFFFFF;
-            font-weight: 700;
-            box-shadow: 0 0 30px rgba(29, 78, 216, 0.5);
-            z-index: 3000;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
         @media (max-width: 992px) {
             .title-line-1 { font-size: 38px; }
             .title-line-2 { font-size: 26px; }
@@ -221,7 +187,7 @@
                     </h1>
                     
                     <div class="hero-cta">
-                        <div class="connect-text-only" onclick="triggerDemoConnect()">
+                        <div class="connect-text-only">
                             Keep on Connect
                         </div>
                     </div>
@@ -229,12 +195,6 @@
             </div>
         </section>
     </main>
-
-    <!-- Toast Notification -->
-    <div class="toast" id="toastBox">
-        <span id="toastIcon">✨</span>
-        <span id="toastMessage">Keep on Connect Active!</span>
-    </div>
 
     <!-- Photorealistic Golden Rim Earth at Night WebGL Animation Engine -->
     <script>
@@ -461,20 +421,6 @@
                 camera.updateProjectionMatrix();
                 renderer.setSize(window.innerWidth, window.innerHeight);
             });
-        }
-
-        /* CONNECT DEMO HANDLER */
-        function triggerDemoConnect() {
-            showToast("Keep on Connect (Demo mode active for future launch)");
-        }
-
-        function showToast(msg) {
-            const toast = document.getElementById('toastBox');
-            document.getElementById('toastMessage').innerText = msg;
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3500);
         }
 
         window.addEventListener('DOMContentLoaded', () => {
