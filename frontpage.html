@@ -18,7 +18,7 @@
             --bg-card: #FFFFFF;
             --primary-saffron: #E67E22;
             --primary-saffron-dark: #D35400;
-            --saffron-glow: rgba(230, 126, 34, 0.2);
+            --saffron-glow: rgba(230, 126, 34, 0.3);
             --india-green: #138808;
             --india-green-dark: #0E6B06;
             --india-blue: #1D4ED8;
@@ -29,7 +29,6 @@
             --text-muted: #475569;
             --border-color: #E2E8F0;
             --card-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
-            --glass-bg: rgba(255, 255, 255, 0.96);
             --font-main: 'Plus Jakarta Sans', sans-serif;
             --font-display: 'Space Grotesk', sans-serif;
         }
@@ -131,64 +130,37 @@
             100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
         }
 
-        /* Header Navigation - Saffron Top Accent */
+        /* Header Navigation - Full Saffron Color */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 4px solid var(--primary-saffron);
-            box-shadow: 0 4px 20px rgba(230, 126, 34, 0.15);
+            background: linear-gradient(135deg, #E67E22 0%, #D35400 100%);
+            box-shadow: 0 4px 20px rgba(230, 126, 34, 0.3);
+            border-bottom: 2px solid #CA6F1E;
         }
 
         .nav-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 80px;
-        }
-
-        .logo-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
+            height: 70px;
         }
 
         .logo-symbol {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--primary-saffron) 0%, var(--primary-saffron-dark) 100%);
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(8px);
             color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
-            box-shadow: 0 4px 14px var(--saffron-glow);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .logo-title {
-            font-size: 19px;
-            font-weight: 800;
-            color: var(--primary-saffron-dark);
-            line-height: 1.2;
-        }
-
-        .logo-subtitle {
-            font-size: 12px;
-            color: var(--navy-blue);
-            font-weight: 700;
+            font-size: 26px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
         }
 
         /* Home Hero Section with Light Faded Graph Image Background */
@@ -258,7 +230,7 @@
             opacity: 1;
         }
 
-        /* Footer - Green Bottom Accent */
+        /* Footer - Full India Green Bottom Band */
         footer {
             margin-top: auto;
             background: linear-gradient(135deg, #138808 0%, #0E6B06 100%);
@@ -284,16 +256,10 @@
 </head>
 <body>
 
-    <!-- Navigation Bar - Saffron Top Band -->
+    <!-- Navigation Bar - Full Saffron Color -->
     <header>
         <div class="container nav-container">
-            <a href="#home" class="logo-group">
-                <div class="logo-symbol">🇮🇳</div>
-                <div class="logo-text">
-                    <span class="logo-title">National Welfare Trust</span>
-                    <span class="logo-subtitle">Republic of India Token</span>
-                </div>
-            </a>
+            <div class="logo-symbol">🇮🇳</div>
         </div>
     </header>
 
@@ -322,7 +288,7 @@
         <span id="toastMessage">Keep on Connect Active!</span>
     </div>
 
-    <!-- Footer - Green Bottom Band -->
+    <!-- Footer - Full Green Bottom Band -->
     <footer>
         <div class="container">
             &copy; 2026 National Welfare Trust. Republic of India Token ($ROIT). All rights reserved. | <strong>Keep on Connect</strong> Active.
