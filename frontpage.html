@@ -161,19 +161,18 @@
             z-index: 30;
         }
 
-        /* Continuous Stock Ticker Marquee Wrapper */
+        /* 100% Truly Infinite 24/7 Sliding Marquee Container */
         .stock-ticker-content {
             display: flex;
-            align-items: center;
-            white-space: nowrap;
-            animation: stockMarqueeLoop 20s linear infinite;
-            will-change: transform;
+            width: max-content;
         }
 
         .stock-ticker-group {
             display: flex;
             align-items: center;
             white-space: nowrap;
+            animation: marqueeInfiniteLoop 16s linear infinite;
+            will-change: transform;
         }
 
         /* Stock Exchange Amber-Yellow LED Text Color from Image */
@@ -224,13 +223,13 @@
         .star-left { fill: #0066FF; }
         .star-right { fill: #FFC700; }
 
-        /* Seamless Infinite Stock Ticker Keyframe */
-        @keyframes stockMarqueeLoop {
+        /* Truly Unlimited Infinite Marquee Keyframes */
+        @keyframes marqueeInfiniteLoop {
             0% {
                 transform: translateX(0%);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-100%);
             }
         }
 
@@ -248,8 +247,8 @@
                 border-bottom-width: 2px;
             }
 
-            .stock-ticker-content {
-                animation-duration: 13s;
+            .stock-ticker-group {
+                animation-duration: 11s;
             }
 
             .stock-ticker-item {
@@ -293,11 +292,16 @@
         </section>
     </main>
 
-    <!-- Stock Market Track Bar: Solid Black Background, Blue Upper & Lower Borders, Amber-Yellow Text -->
+    <!-- Stock Market Track Bar: 100% Truly Unlimited 24/7 Infinite Sliding -->
     <div class="stock-ticker-track-bar">
         <div class="stock-ticker-content">
-            <!-- First Group of 3 Repeated Items -->
+            <!-- First Group of Repeated Items -->
             <div class="stock-ticker-group">
+                <div class="stock-ticker-item">
+                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                </div>
                 <div class="stock-ticker-item">
                     <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                     <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
@@ -315,8 +319,13 @@
                 </div>
             </div>
 
-            <!-- Identical Second Group for 100% Seamless Infinite Looping -->
+            <!-- Identical Second Group for 100% Truly Seamless Infinite 24/7 Looping -->
             <div class="stock-ticker-group">
+                <div class="stock-ticker-item">
+                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                </div>
                 <div class="stock-ticker-item">
                     <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                     <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
