@@ -45,7 +45,7 @@
             overflow-x: hidden;
         }
 
-        /* Digital Earth Background Video Element */
+        /* Digital Earth Background Video Element (Desktop: Un-zoomed Contain) */
         #bg-video {
             position: fixed;
             top: 50%;
@@ -58,6 +58,7 @@
             background-color: #000000;
             pointer-events: none;
             filter: brightness(0.95) contrast(1.08);
+            transition: transform 0.3s ease, object-fit 0.3s ease;
         }
 
         .container {
@@ -237,17 +238,24 @@
             }
         }
 
-        @media (max-width: 992px) {
-            .title-line-1 { font-size: 38px; }
-            .title-line-2 { font-size: 26px; }
-            .title-line-3 { font-size: 42px; }
-            .connect-text-phrase { 
-                font-size: 18px; 
-                margin-left: 60px;
-                margin-right: 60px;
+        /* Responsive Mobile View Adjustments */
+        @media (max-width: 768px) {
+            /* Zoom in Earth Video ONLY on Mobile View */
+            #bg-video {
+                object-fit: cover;
+                transform: translate(-50%, -50%) scale(1.35);
             }
-            .connect-ticker-container { bottom: 24px; }
-            .ticker-icon { width: 18px; height: 18px; }
+
+            .title-line-1 { font-size: 34px; }
+            .title-line-2 { font-size: 22px; }
+            .title-line-3 { font-size: 36px; }
+            .connect-text-phrase { 
+                font-size: 16px; 
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            .connect-ticker-container { bottom: 20px; }
+            .ticker-icon { width: 16px; height: 16px; }
         }
     </style>
 </head>
