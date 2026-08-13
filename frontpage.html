@@ -150,11 +150,11 @@
             bottom: 0;
             left: 0;
             width: 100vw;
-            height: 54px;
-            background: rgba(3, 10, 22, 0.88);
+            height: 52px;
+            background: rgba(2, 8, 18, 0.92);
             backdrop-filter: blur(12px);
-            border-top: 1.5px solid rgba(56, 189, 248, 0.4);
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(56, 189, 248, 0.15);
+            border-top: 1.5px solid rgba(0, 240, 255, 0.35);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.85);
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -179,28 +179,27 @@
         .stock-ticker-item {
             display: inline-flex;
             align-items: center;
-            gap: 14px;
-            padding: 0 40px;
+            gap: 16px;
+            padding: 0 50px;
             font-family: var(--font-display);
             font-size: 20px;
             font-weight: 800;
-            color: #38BDF8;
             letter-spacing: 3px;
             text-transform: uppercase;
             user-select: none;
         }
 
-        /* Stock Market Badge Indicator */
-        .stock-live-badge {
-            background: rgba(0, 240, 255, 0.15);
-            border: 1px solid rgba(0, 240, 255, 0.6);
-            color: #00F0FF;
-            font-size: 11px;
-            font-weight: 900;
-            padding: 2px 8px;
-            border-radius: 4px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+        /* Stock Market Distinct Color Variants for Repeated Items */
+        .stock-ticker-item.color-bullish-green {
+            color: #00E676; /* Stock Market Gainers Bullish Green */
+        }
+
+        .stock-ticker-item.color-crypto-cyan {
+            color: #00F0FF; /* Electric Stock/Crypto Cyan */
+        }
+
+        .stock-ticker-item.color-saffron-gold {
+            color: #FF9933; /* Indian Saffron Gold Stock Ticker */
         }
 
         /* 3 Dots One-by-One Animation */
@@ -223,15 +222,16 @@
             35%, 85% { opacity: 1; }
         }
 
-        /* Star Divider Icons */
+        /* Star Divider Icons with Stock Colors */
         .ticker-star-icon {
             width: 18px;
             height: 18px;
             display: inline-block;
         }
 
-        .star-left { fill: #00F0FF; }
-        .star-right { fill: #FF9933; }
+        .star-cyan { fill: #00F0FF; }
+        .star-green { fill: #00E676; }
+        .star-saffron { fill: #FF9933; }
 
         /* Seamless Infinite Stock Ticker Keyframe */
         @keyframes stockMarqueeLoop {
@@ -252,23 +252,18 @@
             }
 
             .stock-ticker-track-bar {
-                height: 46px;
+                height: 44px;
             }
 
             .stock-ticker-content {
-                animation-duration: 12s;
+                animation-duration: 11s;
             }
 
             .stock-ticker-item {
                 font-size: 15px;
-                padding: 0 20px;
+                padding: 0 25px;
                 letter-spacing: 2px;
                 gap: 10px;
-            }
-
-            .stock-live-badge {
-                font-size: 9px;
-                padding: 1px 6px;
             }
 
             .ticker-star-icon {
@@ -305,50 +300,44 @@
         </section>
     </main>
 
-    <!-- Stock Market Style Track Bar with Continuous Repeated Capitalized Text -->
+    <!-- Stock Market Style Track Bar with Continuous Multi-Colored Capitalized Text -->
     <div class="stock-ticker-track-bar">
         <div class="stock-ticker-content">
-            <!-- First Group of 3 Repeated Items -->
+            <!-- First Group of 3 Repeated Items in Stock Market Colors -->
             <div class="stock-ticker-group">
-                <div class="stock-ticker-item">
-                    <span class="stock-live-badge">LIVE</span>
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                <div class="stock-ticker-item color-bullish-green">
+                    <svg class="ticker-star-icon star-cyan" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                     <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <svg class="ticker-star-icon star-saffron" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                 </div>
-                <div class="stock-ticker-item">
-                    <span class="stock-live-badge">ROIT</span>
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                <div class="stock-ticker-item color-crypto-cyan">
+                    <svg class="ticker-star-icon star-green" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                     <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <svg class="ticker-star-icon star-saffron" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                 </div>
-                <div class="stock-ticker-item">
-                    <span class="stock-live-badge">NWT</span>
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                <div class="stock-ticker-item color-saffron-gold">
+                    <svg class="ticker-star-icon star-cyan" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                     <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <svg class="ticker-star-icon star-green" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                 </div>
             </div>
 
             <!-- Identical Second Group for 100% Seamless Infinite Looping -->
             <div class="stock-ticker-group">
-                <div class="stock-ticker-item">
-                    <span class="stock-live-badge">LIVE</span>
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                <div class="stock-ticker-item color-bullish-green">
+                    <svg class="ticker-star-icon star-cyan" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                     <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <svg class="ticker-star-icon star-saffron" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                 </div>
-                <div class="stock-ticker-item">
-                    <span class="stock-live-badge">ROIT</span>
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                <div class="stock-ticker-item color-crypto-cyan">
+                    <svg class="ticker-star-icon star-green" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                     <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <svg class="ticker-star-icon star-saffron" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                 </div>
-                <div class="stock-ticker-item">
-                    <span class="stock-live-badge">NWT</span>
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                <div class="stock-ticker-item color-saffron-gold">
+                    <svg class="ticker-star-icon star-cyan" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                     <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <svg class="ticker-star-icon star-green" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                 </div>
             </div>
         </div>
