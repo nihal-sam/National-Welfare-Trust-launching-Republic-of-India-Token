@@ -240,10 +240,10 @@
 
         /* Responsive Mobile View Adjustments */
         @media (max-width: 768px) {
-            /* Fully Zoomed-out Natural Earth Video View for Mobile */
+            /* Perfectly Zoomed-in Earth Video ONLY for Mobile View */
             #bg-video {
-                object-fit: contain;
-                transform: translate(-50%, -50%) scale(1.0);
+                object-fit: cover;
+                transform: translate(-50%, -50%) scale(1.18);
             }
 
             .title-line-1 { font-size: 34px; }
@@ -254,7 +254,7 @@
                 margin-left: 50px;
                 margin-right: 50px;
             }
-            .connect-ticker-container { bottom: 24px; }
+            .connect-ticker-container { bottom: 20px; }
             .ticker-icon { width: 16px; height: 16px; }
         }
     </style>
