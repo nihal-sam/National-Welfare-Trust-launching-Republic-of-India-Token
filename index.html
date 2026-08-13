@@ -144,15 +144,16 @@
             letter-spacing: -1px;
         }
 
-        /* Stock Market Bottom Track Bar */
+        /* Stock Market Bottom Track Bar (Pure Black Track with Blue Upper & Lower Borders) */
         .stock-ticker-track-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100vw;
             height: 52px;
-            background: #030A16;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            background: #000000;
+            border-top: 2.5px solid #0066FF;
+            border-bottom: 2.5px solid #0066FF;
             box-shadow: none;
             display: flex;
             align-items: center;
@@ -175,7 +176,7 @@
             white-space: nowrap;
         }
 
-        /* Uniform Neat Premium Sky Blue Color for All Items */
+        /* Stock Exchange Amber-Yellow LED Text Color from Image */
         .stock-ticker-item {
             display: inline-flex;
             align-items: center;
@@ -184,7 +185,7 @@
             font-family: var(--font-display);
             font-size: 19px;
             font-weight: 800;
-            color: #38BDF8;
+            color: #FFC700;
             letter-spacing: 3.5px;
             text-transform: uppercase;
             user-select: none;
@@ -220,8 +221,8 @@
             filter: none;
         }
 
-        .star-left { fill: #00F0FF; }
-        .star-right { fill: #FF9933; }
+        .star-left { fill: #0066FF; }
+        .star-right { fill: #FFC700; }
 
         /* Seamless Infinite Stock Ticker Keyframe */
         @keyframes stockMarqueeLoop {
@@ -243,6 +244,8 @@
 
             .stock-ticker-track-bar {
                 height: 44px;
+                border-top-width: 2px;
+                border-bottom-width: 2px;
             }
 
             .stock-ticker-content {
@@ -290,7 +293,7 @@
         </section>
     </main>
 
-    <!-- Stock Market Style Track Bar (Uniform Neat Premium Sky Blue Color) -->
+    <!-- Stock Market Track Bar: Solid Black Background, Blue Upper & Lower Borders, Amber-Yellow Text -->
     <div class="stock-ticker-track-bar">
         <div class="stock-ticker-content">
             <!-- First Group of 3 Repeated Items -->
