@@ -45,7 +45,7 @@
             overflow-x: hidden;
         }
 
-        /* Digital Earth Background Video Element (Desktop: Un-zoomed Contain) */
+        /* Digital Earth Background Video Element */
         #bg-video {
             position: fixed;
             top: 50%;
@@ -144,50 +144,69 @@
             letter-spacing: -1px;
         }
 
-        /* Bottom News Ticker Marquee Container (Faster Motion Left to Right) */
-        .connect-ticker-container {
+        /* Stock Market Style Bottom Track Bar */
+        .stock-ticker-track-bar {
             position: fixed;
-            bottom: 36px;
+            bottom: 0;
             left: 0;
             width: 100vw;
+            height: 54px;
+            background: rgba(3, 10, 22, 0.88);
+            backdrop-filter: blur(12px);
+            border-top: 1.5px solid rgba(56, 189, 248, 0.4);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(56, 189, 248, 0.15);
+            display: flex;
+            align-items: center;
             overflow: hidden;
-            z-index: 20;
-            pointer-events: none;
-            white-space: nowrap;
+            z-index: 30;
         }
 
-        .connect-ticker-content {
-            display: inline-flex;
+        /* Continuous Stock Ticker Marquee Wrapper */
+        .stock-ticker-content {
+            display: flex;
             align-items: center;
             white-space: nowrap;
-            animation: marqueeLeftToRight 11s linear infinite;
+            animation: stockMarqueeLoop 18s linear infinite;
             will-change: transform;
         }
 
-        .connect-ticker-item {
-            display: inline-flex;
+        .stock-ticker-group {
+            display: flex;
             align-items: center;
-            justify-content: center;
+            white-space: nowrap;
         }
 
-        /* Text with Exact 100px Gap on Left and Right */
-        .connect-text-phrase {
-            margin-left: 100px;
-            margin-right: 100px;
-            font-size: 22px;
-            font-weight: 700;
-            color: #38BDF8;
-            letter-spacing: 2px;
-            user-select: none;
-            text-shadow: none;
+        .stock-ticker-item {
             display: inline-flex;
             align-items: center;
+            gap: 14px;
+            padding: 0 40px;
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 800;
+            color: #38BDF8;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        /* Stock Market Badge Indicator */
+        .stock-live-badge {
+            background: rgba(0, 240, 255, 0.15);
+            border: 1px solid rgba(0, 240, 255, 0.6);
+            color: #00F0FF;
+            font-size: 11px;
+            font-weight: 900;
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         /* 3 Dots One-by-One Animation */
         .animated-dots {
             display: inline-flex;
-            margin-left: 6px;
+            margin-left: 4px;
         }
 
         .animated-dots span {
@@ -195,72 +214,71 @@
             animation: dotFadeOneByOne 1.4s infinite ease-in-out;
         }
 
-        .animated-dots span:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .animated-dots span:nth-child(2) {
-            animation-delay: 0.3s;
-        }
-
-        .animated-dots span:nth-child(3) {
-            animation-delay: 0.6s;
-        }
+        .animated-dots span:nth-child(1) { animation-delay: 0s; }
+        .animated-dots span:nth-child(2) { animation-delay: 0.3s; }
+        .animated-dots span:nth-child(3) { animation-delay: 0.6s; }
 
         @keyframes dotFadeOneByOne {
             0%, 100% { opacity: 0; }
             35%, 85% { opacity: 1; }
         }
 
-        /* Star Icons (Left & Right) */
-        .ticker-icon {
-            width: 22px;
-            height: 22px;
+        /* Star Divider Icons */
+        .ticker-star-icon {
+            width: 18px;
+            height: 18px;
             display: inline-block;
-            vertical-align: middle;
         }
 
-        .icon-star-left {
-            fill: #00F0FF; /* Electric Cyan Star */
-        }
+        .star-left { fill: #00F0FF; }
+        .star-right { fill: #FF9933; }
 
-        .icon-star-right {
-            fill: #FF9933; /* Saffron Gold Star */
-        }
-
-        /* News Ticker Motion: Left to Right Loop */
-        @keyframes marqueeLeftToRight {
+        /* Seamless Infinite Stock Ticker Keyframe */
+        @keyframes stockMarqueeLoop {
             0% {
-                transform: translateX(-100%);
+                transform: translateX(0%);
             }
             100% {
-                transform: translateX(100vw);
+                transform: translateX(-50%);
             }
         }
 
         /* Responsive Mobile View Adjustments */
         @media (max-width: 768px) {
-            /* Faster Ticker Sliding Speed for Mobile View */
-            .connect-ticker-content {
-                animation-duration: 7.5s;
-            }
-
             /* Perfectly Zoomed-Out Earth Video ONLY for Mobile View */
             #bg-video {
                 object-fit: cover;
                 transform: translate(-50%, -50%) scale(1.02);
             }
 
+            .stock-ticker-track-bar {
+                height: 46px;
+            }
+
+            .stock-ticker-content {
+                animation-duration: 12s;
+            }
+
+            .stock-ticker-item {
+                font-size: 15px;
+                padding: 0 20px;
+                letter-spacing: 2px;
+                gap: 10px;
+            }
+
+            .stock-live-badge {
+                font-size: 9px;
+                padding: 1px 6px;
+            }
+
+            .ticker-star-icon {
+                width: 14px;
+                height: 14px;
+            }
+
             .title-line-1 { font-size: 34px; }
             .title-line-2 { font-size: 22px; }
             .title-line-3 { font-size: 36px; }
-            .connect-text-phrase { 
-                font-size: 16px; 
-                margin-left: 50px;
-                margin-right: 50px;
-            }
-            .connect-ticker-container { bottom: 20px; }
-            .ticker-icon { width: 16px; height: 16px; }
         }
     </style>
 </head>
@@ -287,24 +305,51 @@
         </section>
     </main>
 
-    <!-- News Ticker Marquee with Star Icons & Exact 100px Gaps (Faster Moving Left to Right) -->
-    <div class="connect-ticker-container">
-        <div class="connect-ticker-content">
-            <div class="connect-ticker-item">
-                <!-- Left Star Icon -->
-                <svg class="ticker-icon icon-star-left" viewBox="0 0 24 24">
-                    <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
-                </svg>
+    <!-- Stock Market Style Track Bar with Continuous Repeated Capitalized Text -->
+    <div class="stock-ticker-track-bar">
+        <div class="stock-ticker-content">
+            <!-- First Group of 3 Repeated Items -->
+            <div class="stock-ticker-group">
+                <div class="stock-ticker-item">
+                    <span class="stock-live-badge">LIVE</span>
+                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                </div>
+                <div class="stock-ticker-item">
+                    <span class="stock-live-badge">ROIT</span>
+                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                </div>
+                <div class="stock-ticker-item">
+                    <span class="stock-live-badge">NWT</span>
+                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                </div>
+            </div>
 
-                <!-- Text with Exact 100px Left & Right Margin Gaps -->
-                <span class="connect-text-phrase">
-                    Keep on Connect <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span>
-                </span>
-
-                <!-- Right Star Icon -->
-                <svg class="ticker-icon icon-star-right" viewBox="0 0 24 24">
-                    <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
-                </svg>
+            <!-- Identical Second Group for 100% Seamless Infinite Looping -->
+            <div class="stock-ticker-group">
+                <div class="stock-ticker-item">
+                    <span class="stock-live-badge">LIVE</span>
+                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                </div>
+                <div class="stock-ticker-item">
+                    <span class="stock-live-badge">ROIT</span>
+                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                </div>
+                <div class="stock-ticker-item">
+                    <span class="stock-live-badge">NWT</span>
+                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                </div>
             </div>
         </div>
     </div>
