@@ -143,39 +143,47 @@
             letter-spacing: -1px;
         }
 
-        /* Bottom Center Typewriter Animation Container */
-        .connect-bottom-container {
+        /* Bottom News Ticker Marquee Container (Moving Left to Right) */
+        .connect-ticker-container {
             position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 36px;
+            left: 0;
+            width: 100vw;
+            overflow: hidden;
             z-index: 20;
-            text-align: center;
             pointer-events: none;
-            width: 100%;
-            max-width: 600px;
-            padding: 0 20px;
+            white-space: nowrap;
         }
 
-        /* Neat Crisp Sky Blue Typewriter Text */
-        .connect-typewriter-text {
+        .connect-ticker-text {
+            display: inline-block;
+            white-space: nowrap;
             font-size: 22px;
-            font-weight: 600;
+            font-weight: 700;
             color: #38BDF8;
             letter-spacing: 2px;
             user-select: none;
-            white-space: nowrap;
-            display: inline-block;
-            min-height: 32px;
-            text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+            text-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+            animation: marqueeLeftToRight 15s linear infinite;
+            will-change: transform;
+        }
+
+        /* News Ticker Motion: Left to Right Loop */
+        @keyframes marqueeLeftToRight {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100vw);
+            }
         }
 
         @media (max-width: 992px) {
             .title-line-1 { font-size: 38px; }
             .title-line-2 { font-size: 26px; }
             .title-line-3 { font-size: 42px; }
-            .connect-typewriter-text { font-size: 18px; }
-            .connect-bottom-container { bottom: 28px; }
+            .connect-ticker-text { font-size: 18px; }
+            .connect-ticker-container { bottom: 24px; }
         }
     </style>
 </head>
@@ -202,57 +210,12 @@
         </section>
     </main>
 
-    <!-- Bottom Center Typewriter Animation: Keep on Connect ... (No Cursor) -->
-    <div class="connect-bottom-container">
-        <span id="animated-connect-text" class="connect-typewriter-text"></span>
+    <!-- News Ticker Marquee: Smooth Motion Left to Right Loop -->
+    <div class="connect-ticker-container">
+        <div class="connect-ticker-text">
+            Keep on Connect ...
+        </div>
     </div>
 
-    <!-- Typewriter Script Engine -->
-    <script>
-        function startTypewriterAnimation() {
-            const textElement = document.getElementById('animated-connect-text');
-            if (!textElement) return;
-
-            const fullText = "Keep on Connect ...";
-            let index = 0;
-            let isDeleting = false;
-            const typingSpeed = 90;   // ms per letter reveal
-            const deletingSpeed = 45; // ms per letter hide
-            const pauseDelay = 2000;  // ms to stay visible at "Keep on Connect ..."
-
-            function typeStep() {
-                if (!isDeleting) {
-                    // Revealing one by one
-                    textElement.textContent = fullText.substring(0, index + 1);
-                    index++;
-
-                    if (index === fullText.length) {
-                        // Reached full text with three dots: pause, then start deleting
-                        isDeleting = true;
-                        setTimeout(typeStep, pauseDelay);
-                        return;
-                    }
-                } else {
-                    // Hiding one by one
-                    textElement.textContent = fullText.substring(0, index - 1);
-                    index--;
-
-                    if (index === 0) {
-                        // Reached start: pause briefly, then start typing again
-                        isDeleting = false;
-                        setTimeout(typeStep, 600);
-                        return;
-                    }
-                }
-
-                const currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
-                setTimeout(typeStep, currentSpeed);
-            }
-
-            typeStep();
-        }
-
-        window.addEventListener('DOMContentLoaded', startTypewriterAnimation);
-    </script>
 </body>
 </html>
