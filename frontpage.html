@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Three.js CDN for Procedural Photorealistic 3D Earth Background Engine (Zero Media Files Needed) -->
+    <!-- Three.js CDN for Procedural Photorealistic 3D Earth Background Engine -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <style>
@@ -57,6 +57,22 @@
             height: 100vh;
             z-index: 1;
             pointer-events: none;
+        }
+
+        /* Video element zoom out styling */
+        #bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            transform: translate(-50%, -50%) scale(0.85);
+            object-fit: cover;
+            pointer-events: none;
+            filter: brightness(0.95) contrast(1.05);
         }
 
         .container {
@@ -197,7 +213,7 @@
         </section>
     </main>
 
-    <!-- Photorealistic Procedural 3D Earth Engine (No external image/video assets needed) -->
+    <!-- Photorealistic Procedural 3D Earth Engine (Zoomed Out Perspective) -->
     <script>
         function initGoldenRimEarthEngine() {
             const container = document.getElementById('canvas-container');
@@ -210,7 +226,9 @@
 
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 4.2;
+            
+            // Zoomed Out Camera Position (from 4.2 to 5.4 for perfect zoomed-out framing)
+            camera.position.z = 5.4;
 
             const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
@@ -294,8 +312,8 @@
 
             const earthTexture = new THREE.CanvasTexture(mapCanvas);
 
-            // 2. CREATE 3D GLOBE SPHERE
-            const sphereRadius = 1.75;
+            // 2. CREATE 3D GLOBE SPHERE (Zoomed Out Radius)
+            const sphereRadius = 1.45;
             const earthGeo = new THREE.SphereGeometry(sphereRadius, 128, 128);
             const earthMat = new THREE.MeshPhongMaterial({
                 map: earthTexture,
@@ -387,7 +405,7 @@
             const starCount = 600;
             const starPos = new Float32Array(starCount * 3);
             for(let i=0; i<starCount*3; i++) {
-                starPos[i] = (Math.random() - 0.5) * 12;
+                starPos[i] = (Math.random() - 0.5) * 14;
             }
             starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
             const starMat = new THREE.PointsMaterial({ size: 0.02, color: 0xFFFFFF, transparent: true, opacity: 0.8 });
