@@ -144,7 +144,7 @@
             letter-spacing: -1px;
         }
 
-        /* Stock Market Bottom Track Bar (Pure Black Track with Electric Blue Borders & Text) */
+        /* Stock Market Track Bar: Solid Black Track, Upper & Lower BLUE Borders, RED Text */
         .stock-ticker-track-bar {
             position: fixed;
             bottom: 0;
@@ -152,8 +152,8 @@
             width: 100vw;
             height: 52px;
             background: #000000;
-            border-top: 2.5px solid #00F0FF;
-            border-bottom: 2.5px solid #00F0FF;
+            border-top: 2.5px solid #0066FF;
+            border-bottom: 2.5px solid #0066FF;
             box-shadow: none;
             display: flex;
             align-items: center;
@@ -175,7 +175,7 @@
             will-change: transform;
         }
 
-        /* Crisp Electric Blue Text Color */
+        /* Crisp Vibrant Red Text Color */
         .stock-ticker-item {
             display: inline-flex;
             align-items: center;
@@ -184,7 +184,7 @@
             font-family: var(--font-display);
             font-size: 19px;
             font-weight: 800;
-            color: #00F0FF;
+            color: #FF2A2A;
             letter-spacing: 3.5px;
             text-transform: uppercase;
             user-select: none;
@@ -212,7 +212,7 @@
             35%, 85% { opacity: 1; }
         }
 
-        /* Star Divider Icons (Matching Electric Blue) */
+        /* Star Divider Icons */
         .ticker-star-icon {
             width: 18px;
             height: 18px;
@@ -220,8 +220,8 @@
             filter: none;
         }
 
-        .star-left { fill: #00F0FF; }
-        .star-right { fill: #00F0FF; }
+        .star-left { fill: #0066FF; }
+        .star-right { fill: #FF2A2A; }
 
         /* Truly Unlimited Infinite Marquee Keyframes */
         @keyframes marqueeInfiniteLoop {
@@ -292,7 +292,7 @@
         </section>
     </main>
 
-    <!-- Stock Market Track Bar: Solid Black Background, Electric Blue Upper & Lower Border Lines & Text -->
+    <!-- Stock Market Track Bar: Blue Border Lines, Red Text, Solid Black Track -->
     <div class="stock-ticker-track-bar">
         <div class="stock-ticker-content">
             <!-- First Group of Repeated Items -->
@@ -310,7 +310,7 @@
                 <div class="stock-ticker-item">
                     <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                     <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
+                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                 </div>
                 <div class="stock-ticker-item">
                     <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
