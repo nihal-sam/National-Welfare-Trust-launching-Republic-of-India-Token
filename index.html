@@ -69,21 +69,6 @@
             z-index: 10;
         }
 
-        /* Keep on Connect - Plain Normal Text (Amber Gold Color, No Glow, No Box, No Click) */
-        .connect-text-only {
-            font-size: 20px;
-            font-weight: 600;
-            color: #FFB703;
-            letter-spacing: 0.8px;
-            user-select: none;
-            background: none;
-            border: none;
-            padding: 0;
-            box-shadow: none;
-            text-shadow: none;
-            display: inline-block;
-        }
-
         /* Hero Section */
         .hero {
             position: relative;
@@ -92,7 +77,7 @@
             align-items: center;
             justify-content: center;
             padding-top: 100px;
-            padding-bottom: 100px;
+            padding-bottom: 120px;
             text-align: center;
             z-index: 10;
         }
@@ -126,7 +111,7 @@
             gap: 16px;
             font-family: var(--font-display);
             line-height: 1.15;
-            margin-bottom: 52px;
+            margin-bottom: 30px;
             text-align: center;
         }
 
@@ -158,17 +143,53 @@
             letter-spacing: -1px;
         }
 
-        .hero-cta {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
+        /* Bottom Center Typewriter Animation Container */
+        .connect-bottom-container {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            text-align: center;
+            pointer-events: none;
+            width: 100%;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .connect-typewriter-text {
+            font-size: 22px;
+            font-weight: 600;
+            color: #FFB703;
+            letter-spacing: 1.5px;
+            user-select: none;
+            white-space: nowrap;
+            display: inline-block;
+            min-height: 32px;
+        }
+
+        /* Blinking Cursor Effect */
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 22px;
+            background-color: #FFB703;
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blinkCursor 0.8s infinite;
+        }
+
+        @keyframes blinkCursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         @media (max-width: 992px) {
             .title-line-1 { font-size: 38px; }
             .title-line-2 { font-size: 26px; }
             .title-line-3 { font-size: 42px; }
+            .connect-typewriter-text { font-size: 18px; }
+            .connect-bottom-container { bottom: 28px; }
         }
     </style>
 </head>
@@ -190,16 +211,62 @@
                         <span class="title-line-2">launching</span>
                         <span class="title-line-3">Republic of India Token</span>
                     </h1>
-                    
-                    <div class="hero-cta">
-                        <div class="connect-text-only">
-                            Keep on Connect
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Bottom Center Typewriter Animation: Keep on Connect ... -->
+    <div class="connect-bottom-container">
+        <span id="animated-connect-text" class="connect-typewriter-text"></span><span class="cursor"></span>
+    </div>
+
+    <!-- Typewriter Script Engine -->
+    <script>
+        function startTypewriterAnimation() {
+            const textElement = document.getElementById('animated-connect-text');
+            if (!textElement) return;
+
+            const fullText = "Keep on Connect ...";
+            let index = 0;
+            let isDeleting = false;
+            const typingSpeed = 90;   // ms per letter reveal
+            const deletingSpeed = 45; // ms per letter hide
+            const pauseDelay = 2000;  // ms to stay visible at "Keep on Connect ..."
+
+            function typeStep() {
+                if (!isDeleting) {
+                    // Revealing one by one
+                    textElement.textContent = fullText.substring(0, index + 1);
+                    index++;
+
+                    if (index === fullText.length) {
+                        // Reached full text with three dots: pause, then start deleting
+                        isDeleting = true;
+                        setTimeout(typeStep, pauseDelay);
+                        return;
+                    }
+                } else {
+                    // Hiding one by one
+                    textElement.textContent = fullText.substring(0, index - 1);
+                    index--;
+
+                    if (index === 0) {
+                        // Reached start: pause briefly, then start typing again
+                        isDeleting = false;
+                        setTimeout(typeStep, 600);
+                        return;
+                    }
+                }
+
+                const currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
+                setTimeout(typeStep, currentSpeed);
+            }
+
+            typeStep();
+        }
+
+        window.addEventListener('DOMContentLoaded', startTypewriterAnimation);
+    </script>
 </body>
 </html>
