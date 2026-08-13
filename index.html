@@ -168,22 +168,6 @@
             min-height: 32px;
         }
 
-        /* Blinking Cursor Effect */
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 22px;
-            background-color: #FFB703;
-            margin-left: 4px;
-            vertical-align: middle;
-            animation: blinkCursor 0.8s infinite;
-        }
-
-        @keyframes blinkCursor {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
         @media (max-width: 992px) {
             .title-line-1 { font-size: 38px; }
             .title-line-2 { font-size: 26px; }
@@ -216,9 +200,9 @@
         </section>
     </main>
 
-    <!-- Bottom Center Typewriter Animation: Keep on Connect ... -->
+    <!-- Bottom Center Typewriter Animation: Keep on Connect ... (No Cursor) -->
     <div class="connect-bottom-container">
-        <span id="animated-connect-text" class="connect-typewriter-text"></span><span class="cursor"></span>
+        <span id="animated-connect-text" class="connect-typewriter-text"></span>
     </div>
 
     <!-- Typewriter Script Engine -->
