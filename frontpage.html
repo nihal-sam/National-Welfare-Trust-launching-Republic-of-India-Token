@@ -144,24 +144,20 @@
             letter-spacing: -1px;
         }
 
-        /* Ultra-Premium Stock Market Ticker Track Bar */
+        /* Stock Market Bottom Track Bar (Pure Clean Non-Glowing) */
         .stock-ticker-track-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100vw;
-            height: 56px;
-            background: linear-gradient(180deg, rgba(8, 20, 42, 0.92) 0%, rgba(2, 6, 16, 0.98) 100%);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-top: 1px solid rgba(56, 189, 248, 0.35);
-            box-shadow: 0 -6px 30px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            height: 52px;
+            background: #030A16;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: none;
             display: flex;
             align-items: center;
             overflow: hidden;
             z-index: 30;
-            mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
         }
 
         /* Continuous Stock Ticker Marquee Wrapper */
@@ -190,24 +186,24 @@
             letter-spacing: 3.5px;
             text-transform: uppercase;
             user-select: none;
+            text-shadow: none;
+            filter: none;
         }
 
-        /* High-Definition Premium Color Palettes */
-        .stock-ticker-item.color-tricolor-gradient {
-            background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #00E676 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(255, 153, 51, 0.3));
+        /* Clean Solid Stock Colors (Zero Glow) */
+        .stock-ticker-item.color-bullish-green {
+            color: #00E676;
+            text-shadow: none;
         }
 
         .stock-ticker-item.color-electric-cyan {
             color: #00F0FF;
-            text-shadow: 0 0 14px rgba(0, 240, 255, 0.4);
+            text-shadow: none;
         }
 
         .stock-ticker-item.color-gold-saffron {
             color: #FFB703;
-            text-shadow: 0 0 14px rgba(255, 183, 3, 0.4);
+            text-shadow: none;
         }
 
         /* 3 Dots One-by-One Animation */
@@ -230,17 +226,17 @@
             35%, 85% { opacity: 1; }
         }
 
-        /* Star Divider Icons with Premium Ambient Glow */
+        /* Star Divider Icons (Solid Non-Glowing) */
         .ticker-star-icon {
             width: 18px;
             height: 18px;
             display: inline-block;
-            filter: drop-shadow(0 0 6px currentColor);
+            filter: none;
         }
 
-        .star-cyan { fill: #00F0FF; color: #00F0FF; }
-        .star-green { fill: #00E676; color: #00E676; }
-        .star-saffron { fill: #FF9933; color: #FF9933; }
+        .star-cyan { fill: #00F0FF; }
+        .star-green { fill: #00E676; }
+        .star-saffron { fill: #FF9933; }
 
         /* Seamless Infinite Stock Ticker Keyframe */
         @keyframes stockMarqueeLoop {
@@ -261,7 +257,7 @@
             }
 
             .stock-ticker-track-bar {
-                height: 46px;
+                height: 44px;
             }
 
             .stock-ticker-content {
@@ -309,12 +305,12 @@
         </section>
     </main>
 
-    <!-- Ultra-Premium Stock Market Style Track Bar -->
+    <!-- Stock Market Style Track Bar (Pure Non-Glowing) -->
     <div class="stock-ticker-track-bar">
         <div class="stock-ticker-content">
-            <!-- First Group of 3 Repeated Items with Premium Color Themes -->
+            <!-- First Group of 3 Repeated Items with Clean Solid Stock Colors -->
             <div class="stock-ticker-group">
-                <div class="stock-ticker-item color-tricolor-gradient">
+                <div class="stock-ticker-item color-bullish-green">
                     <svg class="ticker-star-icon star-cyan" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                     <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
                     <svg class="ticker-star-icon star-saffron" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
@@ -333,7 +329,7 @@
 
             <!-- Identical Second Group for 100% Seamless Infinite Looping -->
             <div class="stock-ticker-group">
-                <div class="stock-ticker-item color-tricolor-gradient">
+                <div class="stock-ticker-item color-bullish-green">
                     <svg class="ticker-star-icon star-cyan" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                     <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
                     <svg class="ticker-star-icon star-saffron" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
