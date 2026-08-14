@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ta">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="National Welfare Trust launching Republic of India Token - Official Portal.">
-    <title>National Welfare Trust launching Republic of India Token</title>
+    <meta name="description" content="National Welfare Trust (REGT : 1336/2011) - 15 Years of Trust & Service.">
+    <title>NATIONAL WELFARE TRUST - 15 Years of Trust & Service</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=Mukta+Malar:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --bg-page: #000000;
-            --bg-surface: #050D1C;
-            --primary-saffron: #E67E22;
-            --primary-saffron-dark: #D35400;
-            --saffron-glow: rgba(230, 126, 34, 0.6);
+            --bg-surface: rgba(5, 13, 28, 0.85);
+            --bg-card: rgba(8, 20, 42, 0.75);
+            --primary-saffron: #FF9933;
             --india-green: #138808;
-            --india-green-glow: rgba(19, 136, 8, 0.6);
             --cyan-glow: #00F0FF;
-            --text-sky-blue: #38BDF8;
+            --amber-yellow: #FFC700;
+            --stock-green: #00E676;
             --text-main: #FFFFFF;
-            --font-main: 'Plus Jakarta Sans', sans-serif;
-            --font-display: 'Space Grotesk', sans-serif;
+            --text-muted: #94A3B8;
+            --font-main: 'Plus Jakarta Sans', 'Mukta Malar', sans-serif;
+            --font-display: 'Space Grotesk', 'Mukta Malar', sans-serif;
         }
 
         * {
@@ -45,7 +45,7 @@
             overflow-x: hidden;
         }
 
-        /* Digital Earth Background Video Element */
+        /* Full Screen Background Video */
         #bg-video {
             position: fixed;
             top: 50%;
@@ -57,12 +57,12 @@
             object-fit: contain;
             background-color: #000000;
             pointer-events: none;
-            filter: brightness(0.95) contrast(1.08);
-            transition: transform 0.3s ease, object-fit 0.3s ease;
+            filter: brightness(0.65) contrast(1.1);
+            transition: transform 0.3s ease;
         }
 
         .container {
-            max-width: 1240px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 24px;
             width: 100%;
@@ -70,74 +70,176 @@
             z-index: 10;
         }
 
-        /* Top Left Side Branding with Glowing Effect */
-        .top-left-brand {
+        /* Header Navigation Container */
+        .header-nav-container {
             position: fixed;
-            top: 28px;
-            left: 32px;
-            font-family: var(--font-display);
-            font-size: 22px;
-            font-weight: 800;
-            color: #FFFFFF;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            z-index: 20;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            z-index: 100;
+            padding: 12px 32px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 25px rgba(0, 240, 255, 0.7), 0 0 45px rgba(230, 126, 34, 0.5);
-            opacity: 1;
+            justify-content: space-between;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.75) 70%, rgba(0, 0, 0, 0) 100%);
+            backdrop-filter: blur(14px);
+            pointer-events: auto;
         }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            flex: 1;
+        /* Top Left Branding */
+        .top-left-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .trust-logo-frame {
+            width: 72px;
+            height: 72px;
+            min-width: 72px;
+            min-height: 72px;
+            border-radius: 50%;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-top: 100px;
-            padding-bottom: 120px;
-            text-align: center;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
+        .trust-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.52);
+            display: block;
+        }
+
+        .brand-text-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: var(--font-display);
+            font-size: 21px;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 25px rgba(0, 240, 255, 0.7);
+        }
+
+        .brand-reg {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--amber-yellow);
+            letter-spacing: 1.5px;
+        }
+
+        /* Top Navigation Bar */
+        .top-nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(5, 15, 35, 0.88);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            backdrop-filter: blur(16px);
+            padding: 5px 10px;
+            border-radius: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-link {
+            color: #94A3B8;
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border: 1px solid transparent;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: #FFFFFF;
+            background: rgba(0, 240, 255, 0.1);
+            border-color: rgba(0, 240, 255, 0.25);
+        }
+
+        .nav-link.active {
+            color: #FFFFFF;
+            background: rgba(0, 240, 255, 0.18);
+            border-color: rgba(0, 240, 255, 0.45);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+        }
+
+        /* Main Content Layout */
+        main {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding-top: 98px;
+            padding-bottom: 0;
             z-index: 10;
+        }
+
+        section {
+            scroll-margin-top: 110px;
+        }
+
+        /* 1. HERO HOME SECTION */
+        .hero {
+            position: relative;
+            min-height: calc(100vh - 105px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 80px;
+            padding-bottom: 0;
+            text-align: center;
         }
 
         .hero-centered-content {
             max-width: 980px;
-            margin: 0 auto;
+            margin: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
-            animation: heroFadeReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: heroFadeReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes heroFadeReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Title Stack (Launching + Republic of India Token) */
         .hero-title {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 16px;
+            gap: 12px;
             font-family: var(--font-display);
             line-height: 1.15;
-            margin-bottom: 30px;
-            text-align: center;
+            margin-bottom: 16px;
         }
 
-        /* Launching - Distinct Vivid Electric Cyan Color */
         .title-line-2 {
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 700;
             color: #00F0FF;
             text-transform: lowercase;
@@ -146,7 +248,7 @@
         }
 
         .title-line-3 {
-            font-size: 68px;
+            font-size: 64px;
             font-weight: 800;
             background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
             -webkit-background-clip: text;
@@ -155,24 +257,41 @@
             letter-spacing: -1px;
         }
 
-        /* Stock Market Track Bar: Pure Black Inside Background with Cyan Borders */
+        .tagline-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 153, 51, 0.15);
+            border: 1px solid rgba(255, 153, 51, 0.4);
+            color: var(--primary-saffron);
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 800;
+            padding: 8px 24px;
+            border-radius: 30px;
+            margin-top: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(255, 153, 51, 0.25);
+        }
+
+        /* Stock Market Track Bar: Anchored ONLY inside Home Section Bottom */
         .stock-ticker-track-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
+            position: relative;
             width: 100vw;
+            margin-left: calc(-50vw + 50%);
             height: 52px;
             background: #000000;
             border-top: 2.5px solid #00F0FF;
             border-bottom: 2.5px solid #00F0FF;
-            box-shadow: 0 -4px 20px rgba(0, 240, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
             display: flex;
             align-items: center;
             overflow: hidden;
             z-index: 30;
+            margin-top: auto;
         }
 
-        /* 100% Truly Infinite 24/7 Sliding Marquee Container */
         .stock-ticker-content {
             display: flex;
             width: max-content;
@@ -186,12 +305,11 @@
             will-change: transform;
         }
 
-        /* Stock Exchange LED Amber Yellow Text Color */
         .stock-ticker-item {
             display: inline-flex;
             align-items: center;
             gap: 18px;
-            padding: 0 45px;
+            padding: 0 50px;
             font-family: var(--font-display);
             font-size: 19px;
             font-weight: 800;
@@ -199,11 +317,9 @@
             letter-spacing: 3.5px;
             text-transform: uppercase;
             user-select: none;
-            text-shadow: none;
-            filter: none;
+            flex-shrink: 0;
         }
 
-        /* 3 Dots One-by-One Animation */
         .animated-dots {
             display: inline-flex;
             margin-left: 4px;
@@ -223,148 +339,551 @@
             35%, 85% { opacity: 1; }
         }
 
-        /* Star Divider Icons */
         .ticker-star-icon {
             width: 18px;
             height: 18px;
+            min-width: 18px;
+            min-height: 18px;
+            flex-shrink: 0;
             display: inline-block;
-            filter: none;
+            overflow: visible;
         }
 
         .star-left { fill: #00F0FF; }
         .star-right { fill: #FFC700; }
 
-        /* Truly Unlimited Infinite Marquee Keyframes */
         @keyframes marqueeInfiniteLoop {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
         }
 
-        /* Responsive Mobile View Adjustments */
-        @media (max-width: 768px) {
-            /* Perfectly Zoomed-Out Earth Video ONLY for Mobile View */
-            #bg-video {
-                object-fit: cover;
-                transform: translate(-50%, -50%) scale(1.02);
-            }
+        /* Section Card Base Styles */
+        .page-section {
+            padding: 50px 0;
+            position: relative;
+        }
 
-            .top-left-brand {
-                top: 18px;
-                left: 18px;
-                font-size: 16px;
-                letter-spacing: 1px;
-            }
+        .section-title-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            border-bottom: 1.5px solid rgba(0, 240, 255, 0.25);
+            padding-bottom: 16px;
+        }
 
-            .stock-ticker-track-bar {
-                height: 44px;
-                border-top-width: 2px;
-                border-bottom-width: 2px;
-            }
+        .section-h2 {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 800;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-            .stock-ticker-group {
-                animation-duration: 11s;
-            }
+        .section-h2::before {
+            content: '';
+            width: 4px;
+            height: 26px;
+            background: var(--cyan-glow);
+            border-radius: 2px;
+            box-shadow: 0 0 12px var(--cyan-glow);
+        }
 
-            .stock-ticker-item {
-                font-size: 15px;
-                padding: 0 22px;
-                letter-spacing: 2px;
+        .content-card {
+            background: var(--bg-surface);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            border-radius: 20px;
+            padding: 32px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        /* 2. ABOUT US STYLES */
+        .about-text-content {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.8;
+            color: #FFFFFF;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Bullet Points Client List */
+        .client-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .client-list li {
+            position: relative;
+            padding-left: 32px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+        }
+
+        .client-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--cyan-glow);
+            box-shadow: 0 0 12px var(--cyan-glow);
+        }
+
+        /* Trustees Clean Grid */
+        .trustees-clean-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .trustee-row-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 199, 0, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .trustee-row-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--amber-yellow);
+            box-shadow: 0 8px 25px rgba(255, 199, 0, 0.2);
+        }
+
+        .role-badge {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--amber-yellow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .person-name {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+
+        /* 6. CONTACT US TRANSPARENT FULL-WIDTH FOOTER SECTION */
+        .contact-full-footer {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background: linear-gradient(180deg, rgba(5, 15, 35, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
+            border-top: 2px solid var(--cyan-glow);
+            padding: 50px 0;
+            box-shadow: 0 -10px 40px rgba(0, 240, 255, 0.2);
+            margin-top: 40px;
+        }
+
+        .contact-footer-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        /* Footer Left: Clickable URL Link containing Logo & NATIONAL WELFARE TRUST text alone */
+        .contact-left-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-left-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .footer-logo-frame {
+            width: 104px;
+            height: 104px;
+            min-width: 104px;
+            min-height: 104px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            margin-bottom: 8px;
+        }
+
+        .footer-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.52);
+            display: block;
+        }
+
+        .contact-title-main {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: 1px;
+        }
+
+        /* Footer Right: Left-Aligned Text Content Starting Cleanly */
+        .contact-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .footer-section-h2 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 800;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .contact-detail-line {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-align: left;
+            width: 100%;
+        }
+
+        .contact-detail-line span {
+            color: #FFFFFF;
+            margin-left: 8px;
+        }
+
+        /* Responsive Mobile Layout Adjustments */
+        @media (max-width: 900px) {
+            .header-nav-container {
+                flex-direction: column;
                 gap: 12px;
+                padding: 14px;
+                background: rgba(0, 0, 0, 0.95);
             }
 
-            .ticker-star-icon {
-                width: 14px;
-                height: 14px;
+            .top-nav-bar {
+                width: 100%;
+                justify-content: center;
+                overflow-x: auto;
+                padding: 4px 8px;
+            }
+
+            .nav-link {
+                font-size: 12px;
+                padding: 6px 12px;
+                white-space: nowrap;
             }
 
             .title-line-2 { font-size: 26px; }
             .title-line-3 { font-size: 38px; }
+
+            .contact-footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 28px;
+            }
+
+            .contact-left-link {
+                align-items: flex-start;
+                text-align: left;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Full Screen Background Video (Digital World Earth Spinning) -->
+    <!-- Full Screen Background Video -->
     <video id="bg-video" autoplay loop muted playsinline>
         <source src="./earth_background.mp4" type="video/mp4">
         <source src="./Digital World Earth Spinning Black and White_1080p.mp4" type="video/mp4">
     </video>
 
-    <!-- Top Left Glowing Branding -->
-    <div class="top-left-brand">
-        <span>National Welfare Trust</span>
-    </div>
+    <!-- Top Header & Navigation Bar -->
+    <header class="header-nav-container">
+        <a href="#home" class="top-left-brand">
+            <div class="trust-logo-frame">
+                <img src="./WhatsApp Image 2026-08-14 at 12.39.38 PM.jpeg" alt="National Welfare Trust Logo" class="trust-logo-img">
+            </div>
+            <div class="brand-text-wrap">
+                <span class="brand-name">NATIONAL WELFARE TRUST</span>
+                <span class="brand-reg">REGT : 1336/2011</span>
+            </div>
+        </a>
 
-    <main style="display: flex; flex-direction: column; flex: 1;">
-        <!-- Home Hero Section -->
+        <!-- Top Right Pages Navigation Bar -->
+        <nav class="top-nav-bar">
+            <a href="#home" class="nav-link active" id="nav-home">Home</a>
+            <a href="#about" class="nav-link" id="nav-about">About Us</a>
+            <a href="#mission" class="nav-link" id="nav-mission">Our Mission</a>
+            <a href="#projects" class="nav-link" id="nav-projects">Our Projects</a>
+            <a href="#trustees" class="nav-link" id="nav-trustees">Trustees</a>
+            <a href="#contact" class="nav-link" id="nav-contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. HOME SECTION -->
         <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-centered-content">
-                    <h1 class="hero-title">
-                        <span class="title-line-2">launching</span>
-                        <span class="title-line-3">Republic of India Token</span>
-                    </h1>
+            <div class="hero-centered-content">
+                <h1 class="hero-title">
+                    <span class="title-line-2">launching</span>
+                    <span class="title-line-3">Republic of India Token</span>
+                </h1>
+
+                <!-- Tagline Badge Positioned Right Below Republic of India Token -->
+                <div class="tagline-badge">
+                    <span>★ 15 Years of Trust & Service ★</span>
+                </div>
+            </div>
+
+            <!-- KEEP ON CONNECT Ticker Track Bar: ONLY inside Home Page Bottom -->
+            <div class="stock-ticker-track-bar">
+                <div class="stock-ticker-content">
+                    <div class="stock-ticker-group">
+                        <div class="stock-ticker-item">
+                            <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                        </div>
+                        <div class="stock-ticker-item">
+                            <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
+                        </div>
+                        <div class="stock-ticker-item">
+                            <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
+                        </div>
+                        <div class="stock-ticker-item">
+                            <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="stock-ticker-group">
+                        <div class="stock-ticker-item">
+                            <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                        </div>
+                        <div class="stock-ticker-item">
+                            <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                        </div>
+                        <div class="stock-ticker-item">
+                            <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                        </div>
+                        <div class="stock-ticker-item">
+                            <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- 2. ABOUT US SECTION -->
+            <section id="about" class="page-section">
+                <div class="section-title-wrap">
+                    <h2 class="section-h2">ABOUT US</h2>
+                </div>
+                <div class="content-card">
+                    <p class="about-text-content">
+                        2011-ல் ஆரம்பிக்கப்பட்ட எங்கள் அறக்கட்டளை, கடந்த 15 வருடங்களாக மக்கள் சேவையில்...
+                    </p>
+                </div>
+            </section>
+
+            <!-- 3. OUR MISSION SECTION -->
+            <section id="mission" class="page-section">
+                <div class="section-title-wrap">
+                    <h2 class="section-h2">OUR MISSION</h2>
+                </div>
+                <div class="content-card">
+                    <ul class="client-list">
+                        <li>ஏழை மக்களுக்கு உதவுதல்</li>
+                        <li>கல்வி உதவி</li>
+                        <li>Digital Awareness / Crypto Education</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 4. OUR PROJECTS SECTION -->
+            <section id="projects" class="page-section">
+                <div class="section-title-wrap">
+                    <h2 class="section-h2">OUR PROJECTS</h2>
+                </div>
+                <div class="content-card">
+                    <ul class="client-list">
+                        <li>Company & Business Development</li>
+                        <li>Crypto & Digital Finance Education</li>
+                        <li>Future Projects...</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 5. BOARD OF TRUSTEES SECTION -->
+            <section id="trustees" class="page-section">
+                <div class="section-title-wrap">
+                    <h2 class="section-h2">BOARD OF TRUSTEES</h2>
+                </div>
+                <div class="content-card">
+                    <div class="trustees-clean-grid">
+                        <div class="trustee-row-card">
+                            <span class="role-badge">President</span>
+                            <span class="person-name">Sakthiya Siva</span>
+                        </div>
+                        <div class="trustee-row-card">
+                            <span class="role-badge">Secretary</span>
+                            <span class="person-name">Gokul</span>
+                        </div>
+                        <div class="trustee-row-card">
+                            <span class="role-badge">Treasure</span>
+                            <span class="person-name">Narasimmaselvi</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 6. CONTACT US TRANSPARENT FULL-WIDTH FOOTER SECTION -->
+        <section id="contact" class="contact-full-footer">
+            <div class="container contact-footer-container">
+                <!-- Left Side: Clickable URL Link (Logo + NATIONAL WELFARE TRUST Text Alone) -->
+                <a href="#home" class="contact-left-link">
+                    <div class="footer-logo-frame">
+                        <img src="./WhatsApp Image 2026-08-14 at 12.39.38 PM.jpeg" alt="National Welfare Trust Logo" class="footer-logo-img">
+                    </div>
+                    <div class="contact-title-main">NATIONAL WELFARE TRUST</div>
+                </a>
+
+                <!-- Right Side: Left-Aligned Text Content Starting Cleanly -->
+                <div class="contact-right">
+                    <h2 class="footer-section-h2">CONTACT US</h2>
+                    <div class="contact-detail-line">Address: <span>No. 15, Welfare Tower, Anna Salai, Chennai, Tamil Nadu - 600002</span></div>
+                    <div class="contact-detail-line">Phone: <span>94999 11947</span></div>
+                    <div class="contact-detail-line">Email: <span>info@nationalwelfaretrust.org</span></div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Stock Market Track Bar: Pure Black Inside Background with Cyan Border Lines -->
-    <div class="stock-ticker-track-bar">
-        <div class="stock-ticker-content">
-            <!-- First Group of Repeated Items -->
-            <div class="stock-ticker-group">
-                <div class="stock-ticker-item">
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                </div>
-                <div class="stock-ticker-item">
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
-                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                </div>
-                <div class="stock-ticker-item">
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                </div>
-                <div class="stock-ticker-item">
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                </div>
-            </div>
+    <!-- Navigation Bar Active Highlight & Scroll Handler -->
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+        let isNavClicking = false;
 
-            <!-- Identical Second Group for 100% Truly Seamless Infinite 24/7 Looping -->
-            <div class="stock-ticker-group">
-                <div class="stock-ticker-item">
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                </div>
-                <div class="stock-ticker-item">
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                </div>
-                <div class="stock-ticker-item">
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                </div>
-                <div class="stock-ticker-item">
-                    <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                    <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                    <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-                </div>
-            </div>
-        </div>
-    </div>
+        function highlightActiveNav() {
+            if (isNavClicking) return;
 
+            let currentSectionId = 'home';
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const bodyHeight = document.documentElement.scrollHeight;
+            const headerOffset = 120;
+
+            if (scrollY < 120) {
+                currentSectionId = 'home';
+            } else if (scrollY + windowHeight >= bodyHeight - 60) {
+                currentSectionId = 'contact';
+            } else {
+                let bestMatchId = 'home';
+                let minDistance = Infinity;
+
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const dist = Math.abs(rect.top - headerOffset);
+                    if (rect.top <= headerOffset + 150 && rect.bottom >= headerOffset + 50) {
+                        bestMatchId = section.getAttribute('id');
+                        minDistance = -1;
+                    } else if (minDistance !== -1 && dist < minDistance) {
+                        minDistance = dist;
+                        bestMatchId = section.getAttribute('id');
+                    }
+                });
+                currentSectionId = bestMatchId;
+            }
+
+            navLinks.forEach(link => {
+                const targetHash = link.getAttribute('href');
+                if (targetHash === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Unlock click flag ONLY when user physically scrolls or touches screen
+        ['wheel', 'touchmove', 'keydown'].forEach(evt => {
+            window.addEventListener(evt, () => {
+                isNavClicking = false;
+            }, { passive: true });
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    isNavClicking = true;
+
+                    // Immediately move active glowing pill to clicked link
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+
+                    const headerOffset = 105;
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', highlightActiveNav);
+        window.addEventListener('DOMContentLoaded', highlightActiveNav);
+        highlightActiveNav();
+    </script>
 </body>
 </html>
