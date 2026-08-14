@@ -186,6 +186,43 @@
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
         }
 
+        /* Mobile Hamburger Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 42px;
+            height: 40px;
+            padding: 9px 8px;
+            background: rgba(5, 15, 35, 0.9);
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            border-radius: 12px;
+            cursor: pointer;
+            z-index: 110;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-bar {
+            width: 100%;
+            height: 3px;
+            background-color: #00F0FF;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+        }
+
+        /* Hamburger Animated X State */
+        .mobile-menu-btn.open .hamburger-bar:nth-child(1) {
+            transform: translateY(8.5px) rotate(45deg);
+        }
+        .mobile-menu-btn.open .hamburger-bar:nth-child(2) {
+            opacity: 0;
+        }
+        .mobile-menu-btn.open .hamburger-bar:nth-child(3) {
+            transform: translateY(-8.5px) rotate(-45deg);
+        }
+
         /* Main Content Layout */
         main {
             display: flex;
@@ -580,39 +617,114 @@
         }
 
         /* Responsive Mobile Layout Adjustments */
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
             .header-nav-container {
-                flex-direction: column;
-                gap: 12px;
-                padding: 14px;
-                background: rgba(0, 0, 0, 0.95);
+                padding: 12px 18px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .trust-logo-frame {
+                width: 54px;
+                height: 54px;
+                min-width: 54px;
+                min-height: 54px;
+            }
+
+            .brand-name {
+                font-size: 16px;
+            }
+
+            .brand-reg {
+                font-size: 10px;
             }
 
             .top-nav-bar {
-                width: 100%;
-                justify-content: center;
-                overflow-x: auto;
-                padding: 4px 8px;
+                position: absolute;
+                top: 100%;
+                left: 16px;
+                right: 16px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                background: rgba(4, 12, 28, 0.98);
+                border: 1px solid rgba(0, 240, 255, 0.4);
+                padding: 16px;
+                border-radius: 20px;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.25);
+                backdrop-filter: blur(20px);
+                display: none;
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            .top-nav-bar.mobile-open {
+                display: flex;
+                opacity: 1;
+                transform: translateY(0);
             }
 
             .nav-link {
-                font-size: 12px;
-                padding: 6px 12px;
-                white-space: nowrap;
+                font-size: 15px;
+                font-weight: 800;
+                padding: 12px 20px;
+                justify-content: center;
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                width: 100%;
+                text-align: center;
             }
 
-            .title-line-2 { font-size: 26px; }
-            .title-line-3 { font-size: 38px; }
+            .nav-link.active {
+                background: rgba(0, 240, 255, 0.22);
+                border-color: rgba(0, 240, 255, 0.6);
+            }
+
+            .title-line-2 { font-size: 24px; letter-spacing: 3px; }
+            .title-line-3 { font-size: 36px; }
+            .tagline-badge { font-size: 13px; padding: 6px 16px; }
+
+            .stock-ticker-item {
+                font-size: 15px;
+                padding: 0 25px;
+                gap: 10px;
+            }
+
+            .content-card {
+                padding: 20px 18px;
+            }
+
+            .about-text-content {
+                font-size: 17px;
+            }
+
+            .client-list li {
+                font-size: 16px;
+            }
+
+            .trustees-clean-grid {
+                grid-template-columns: 1fr;
+            }
 
             .contact-footer-container {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 28px;
+                gap: 24px;
             }
 
-            .contact-left-link {
-                align-items: flex-start;
-                text-align: left;
+            .contact-title-main {
+                font-size: 20px;
+            }
+
+            .contact-detail-line {
+                font-size: 15px;
             }
         }
     </style>
@@ -637,8 +749,15 @@
             </div>
         </a>
 
+        <!-- Mobile Hamburger Toggle Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+
         <!-- Top Right Pages Navigation Bar -->
-        <nav class="top-nav-bar">
+        <nav class="top-nav-bar" id="top-nav-bar">
             <a href="#home" class="nav-link active" id="nav-home">Home</a>
             <a href="#about" class="nav-link" id="nav-about">About Us</a>
             <a href="#mission" class="nav-link" id="nav-mission">Our Mission</a>
@@ -675,17 +794,17 @@
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                             <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
                         </div>
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                             <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
                         </div>
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                             <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
                         </div>
                     </div>
 
@@ -698,17 +817,17 @@
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                             <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
                         </div>
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                             <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
                         </div>
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                             <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
                         </div>
                     </div>
                 </div>
@@ -802,11 +921,21 @@
         </section>
     </main>
 
-    <!-- Navigation Bar Active Highlight & Scroll Handler -->
+    <!-- Navigation Bar Active Highlight & Mobile Menu Handler -->
     <script>
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('section');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const topNavBar = document.getElementById('top-nav-bar');
         let isNavClicking = false;
+
+        // Mobile Hamburger Menu Toggle
+        if (mobileMenuBtn && topNavBar) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('open');
+                topNavBar.classList.toggle('mobile-open');
+            });
+        }
 
         function highlightActiveNav() {
             if (isNavClicking) return;
@@ -861,6 +990,12 @@
                 e.preventDefault();
                 const targetId = link.getAttribute('href').substring(1);
                 const targetSection = document.getElementById(targetId);
+
+                // Close mobile menu on item click
+                if (mobileMenuBtn && topNavBar) {
+                    mobileMenuBtn.classList.remove('open');
+                    topNavBar.classList.remove('mobile-open');
+                }
 
                 if (targetSection) {
                     isNavClicking = true;
