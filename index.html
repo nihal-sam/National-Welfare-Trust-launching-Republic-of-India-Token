@@ -477,6 +477,144 @@
             box-shadow: 0 0 12px var(--cyan-glow);
         }
 
+        /* Organ & Tissue Donation Card Styles */
+        .donation-project-card {
+            background: rgba(4, 15, 35, 0.85);
+            border: 1.5px solid rgba(0, 240, 255, 0.4);
+            border-radius: 20px;
+            padding: 28px;
+            margin-top: 28px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 240, 255, 0.15);
+        }
+
+        .donation-header {
+            margin-bottom: 20px;
+        }
+
+        .donation-badge {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--amber-yellow);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: rgba(255, 199, 0, 0.12);
+            border: 1px solid rgba(255, 199, 0, 0.35);
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .donation-title {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+        }
+
+        .impact-banner {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(135deg, rgba(255, 153, 51, 0.22) 0%, rgba(19, 136, 8, 0.22) 100%);
+            border: 1px solid rgba(255, 153, 51, 0.45);
+            border-radius: 16px;
+            padding: 18px 22px;
+            margin-bottom: 24px;
+            box-shadow: 0 0 20px rgba(255, 153, 51, 0.15);
+        }
+
+        .impact-icon {
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .impact-text {
+            font-size: 17px;
+            font-weight: 600;
+            color: #FFFFFF;
+            line-height: 1.5;
+        }
+
+        .impact-text strong {
+            color: var(--primary-saffron);
+            font-weight: 800;
+        }
+
+        .donation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .donation-subcard {
+            background: rgba(8, 24, 52, 0.85);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .subcard-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        .subcard-header h4 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--cyan-glow);
+            letter-spacing: 0.5px;
+        }
+
+        .subcard-icon {
+            font-size: 22px;
+        }
+
+        .donation-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .donation-list li {
+            position: relative;
+            padding-left: 22px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #E2E8F0;
+            line-height: 1.55;
+        }
+
+        .donation-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--cyan-glow);
+            font-size: 20px;
+            top: -2px;
+        }
+
+        .donation-list li strong {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        .donation-list.grid-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
         /* Trustees Clean Grid */
         .trustees-clean-grid {
             display: grid;
@@ -709,6 +847,25 @@
                 font-size: 16px;
             }
 
+            .donation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .donation-list.grid-list {
+                grid-template-columns: 1fr;
+            }
+
+            .donation-title {
+                font-size: 20px;
+            }
+
+            .impact-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 14px 16px;
+            }
+
             .trustees-clean-grid {
                 grid-template-columns: 1fr;
             }
@@ -799,7 +956,7 @@
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                             <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                         </div>
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
@@ -827,7 +984,7 @@
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                             <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                         </div>
                     </div>
                 </div>
@@ -867,11 +1024,63 @@
                     <h2 class="section-h2">OUR PROJECTS</h2>
                 </div>
                 <div class="content-card">
-                    <ul class="client-list">
+                    <ul class="client-list" style="margin-bottom: 24px;">
                         <li>Company & Business Development</li>
                         <li>Crypto & Digital Finance Education</li>
-                        <li>Future Projects...</li>
+                        <li>Organ & Tissue Donation Awareness Campaign</li>
                     </ul>
+
+                    <!-- Organ & Tissue Donation Featured Initiative Box -->
+                    <div class="donation-project-card">
+                        <div class="donation-header">
+                            <span class="donation-badge">FEATURED HUMANITARIAN INITIATIVE</span>
+                            <h3 class="donation-title">Organ & Tissue Donation Awareness</h3>
+                        </div>
+
+                        <!-- Impact Callout Banner -->
+                        <div class="impact-banner">
+                            <span class="impact-icon">✨</span>
+                            <div class="impact-text">
+                                <strong>Impact of a Single Donor:</strong> A single donor can save up to <strong>8 lives</strong> and enhance the lives of up to <strong>50 people</strong> through tissue donation!
+                            </div>
+                        </div>
+
+                        <!-- Two Column Grid for Living & Deceased Donation -->
+                        <div class="donation-grid">
+                            <!-- 1. Living Donation -->
+                            <div class="donation-subcard living-card">
+                                <div class="subcard-header">
+                                    <span class="subcard-icon">💚</span>
+                                    <h4>1. Living Donation (While Alive)</h4>
+                                </div>
+                                <ul class="donation-list">
+                                    <li><strong>Kidney:</strong> 1 kidney can be donated (one healthy kidney is sufficient for a normal life).</li>
+                                    <li><strong>Liver:</strong> A portion of the liver can be donated (it naturally regenerates over time).</li>
+                                    <li><strong>Blood:</strong> Can be safely donated once every 3 months.</li>
+                                    <li><strong>Bone Marrow:</strong> Can be donated safely to save lives.</li>
+                                </ul>
+                            </div>
+
+                            <!-- 2. Deceased Donation -->
+                            <div class="donation-subcard deceased-card">
+                                <div class="subcard-header">
+                                    <span class="subcard-icon">🕊️</span>
+                                    <h4>2. Deceased Donation (After Death)</h4>
+                                </div>
+                                <ul class="donation-list grid-list">
+                                    <li><strong>Heart ❤️</strong></li>
+                                    <li><strong>Lungs</strong> (2 Lungs)</li>
+                                    <li><strong>Full Liver</strong></li>
+                                    <li><strong>Pancreas</strong></li>
+                                    <li><strong>Kidneys</strong> (2 Kidneys)</li>
+                                    <li><strong>Eyes / Cornea</strong> (Restores Vision)</li>
+                                    <li><strong>Skin</strong></li>
+                                    <li><strong>Heart Valves</strong></li>
+                                    <li><strong>Bones</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
