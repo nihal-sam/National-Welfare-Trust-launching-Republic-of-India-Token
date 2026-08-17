@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -439,13 +439,86 @@
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
         }
 
-        /* 2. ABOUT US STYLES */
-        .about-text-content {
+        /* 2. ABOUT US ENHANCED STYLES */
+        .about-hero-box {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        .about-badge {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--cyan-glow);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: rgba(0, 240, 255, 0.12);
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .about-lead {
+            font-family: var(--font-display);
             font-size: 22px;
             font-weight: 700;
-            line-height: 1.8;
+            line-height: 1.6;
             color: #FFFFFF;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .about-lead strong {
+            color: var(--cyan-glow);
+        }
+
+        .about-body-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .about-p {
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.7;
+            color: #E2E8F0;
+        }
+
+        .about-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            background: rgba(4, 15, 35, 0.8);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--amber-yellow);
+            text-shadow: 0 0 12px rgba(255, 199, 0, 0.4);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Bullet Points Client List */
@@ -839,8 +912,17 @@
                 padding: 20px 18px;
             }
 
-            .about-text-content {
-                font-size: 17px;
+            .about-lead {
+                font-size: 18px;
+            }
+
+            .about-p {
+                font-size: 15px;
+            }
+
+            .about-stats-row {
+                grid-template-columns: 1fr;
+                gap: 14px;
             }
 
             .client-list li {
@@ -951,12 +1033,12 @@
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                             <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                         </div>
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                             <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
                         </div>
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
@@ -974,7 +1056,7 @@
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                             <span>KEEP ON CONNECT <span class="animated-dots"><span>.</span><span>.</span><span>.</span></span></span>
-                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/></svg>
+                            <svg class="ticker-star-icon star-right" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
                         </div>
                         <div class="stock-ticker-item">
                             <svg class="ticker-star-icon star-left" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
@@ -998,9 +1080,39 @@
                     <h2 class="section-h2">ABOUT US</h2>
                 </div>
                 <div class="content-card">
-                    <p class="about-text-content">
-                        2011-ல் ஆரம்பிக்கப்பட்ட எங்கள் அறக்கட்டளை, கடந்த 15 வருடங்களாக மக்கள் சேவையில்...
-                    </p>
+                    <div class="about-hero-box">
+                        <span class="about-badge">15 YEARS OF DEDICATED SERVICE</span>
+                        <h3 class="about-lead">
+                            Established in 2011, <strong>National Welfare Trust (REGT: 1336/2011)</strong> has been at the forefront of social empowerment and community welfare for over 15 impactful years.
+                        </h3>
+                    </div>
+
+                    <div class="about-body-grid">
+                        <p class="about-p">
+                            Founded on the principles of compassion, transparency, and relentless service, our trust works tirelessly to uplift underprivileged families through educational support, emergency medical assistance, and community welfare initiatives.
+                        </p>
+                        <p class="about-p">
+                            As digital innovation reshapes the global financial landscape, we are dedicated to bridging the knowledge gap by pioneering digital awareness and crypto education, empowering individuals to participate in the future economy.
+                        </p>
+                        <p class="about-p">
+                            From promoting life-saving organ and tissue donation campaigns to developing sustainable social infrastructure, National Welfare Trust remains committed to building a brighter, self-reliant future for all.
+                        </p>
+                    </div>
+
+                    <div class="about-stats-row">
+                        <div class="stat-item">
+                            <span class="stat-num">2011</span>
+                            <span class="stat-label">Year Established</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">15+</span>
+                            <span class="stat-label">Years of Service</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">100%</span>
+                            <span class="stat-label">Non-Profit Commitment</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
